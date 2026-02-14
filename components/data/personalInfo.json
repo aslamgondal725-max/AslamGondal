@@ -3,11 +3,13 @@
   "name": "Muhammad Aslam",
   "domain": "https://your-vercel-url.vercel.app",
   "copyright": "MuhammadAslam",
+
   "socialMedia": {
     "Twitter": "https://x.com/aslamgondal5",
     "LinkedIn": "https://www.linkedin.com/in/muhammad-aslam-61884110b",
     "GoogleScholar": ""
   },
+
   "about": {
     "degree": "M.Sc. Molecular Biotechnology",
     "department": {
@@ -26,38 +28,25 @@
     "bio": "I hold an M.Sc. in Molecular Biotechnology. My master’s thesis focused on the biofabrication of vascularized mini-bone constructs through the integration of stem-cell-derived spheroids and blood vessel organoids.",
     "interest": "Biofabrication of vascularized tissue models; application of the 3R principles to develop advanced 3D human in vitro systems as alternatives to animal models; bone marrow modeling with a focus on the development of immunoid platforms for studying hematological malignancies."
   },
+
   "love": "/cv.pdf",
+
   "education": [
     {
       "name": "M.Sc. Molecular Biotechnology — Anhalt University of Applied Sciences, Germany",
-      "link": "https://www.hs-anhalt.de/",
-      "docs": [
-        { "label": "transcript", "url": "/M.Sc.HSA-Transcript.pdf" }
-      ]
+      "link": "https://www.hs-anhalt.de/"
     },
     {
       "name": "M.S. Biology (Molecular Biology) — Lahore University of Management Sciences (LUMS), Pakistan",
-      "link": "https://lums.edu.pk/",
-      "docs": [
-        { "label": "transcript", "url": "/MS-LUMS-Transcript.pdf" },
-        { "label": "certificate", "url": "/MS-LUMS-Certificate.pdf" }
-      ]
+      "link": "https://lums.edu.pk/"
     },
     {
       "name": "M.Sc. (16 years) Animal Sciences (Zoology) — Quaid-e-Azam University (QAU), Pakistan",
-      "link": "https://qau.edu.pk/",
-      "docs": [
-        { "label": "transcript", "url": "/M.Sc.QAU-Transcript.pdf" },
-        { "label": "certificate", "url": "/M.Sc.QAU-Certificate.pdf" }
-      ]
+      "link": "https://qau.edu.pk/"
     },
     {
       "name": "B.Sc. (14 years) Biology (Botany, Zoology & Chemistry) — University of Gujrat, Pakistan",
-      "link": "https://uog.edu.pk/",
-      "docs": [
-        { "label": "transcript", "url": "/B.Sc.UOG-Transcript.pdf" },
-        { "label": "certificate", "url": "/B.Sc.UOG-Certificate.pdf" }
-      ]
+      "link": "https://uog.edu.pk/"
     }
   ]
 }
