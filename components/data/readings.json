@@ -1,0 +1,180 @@
+[
+  {
+    "title": "A comprehensive single cell transcriptional landscape of human hematopoietic progenitors",
+    "authors": "Danilo Pellin et al.",
+    "year": 2019,
+    "journal": "Nature Communications",
+    "url": "https://www.nature.com/articles/s41467-019-10291-0"
+  },
+  {
+    "title": "Human Bone Marrow Organoids for Disease Modeling, Discovery, and Validation of Therapeutic Targets in Hematologic Malignancies",
+    "authors": "Khan et al.",
+    "year": 2023,
+    "journal": "Cancer Discovery",
+    "url": "https://aacrjournals.org/cancerdiscovery/article/13/2/364/716300/Human-Bone-Marrow-Organoids-for-Disease-Modeling"
+  },
+  {
+    "title": "Human blood vessel organoids as a model of diabetic vasculopathy",
+    "authors": "Reiner A Wimmer et al.",
+    "year": 2019,
+    "journal": "Nature",
+    "url": "https://www.nature.com/articles/s41586-018-0858-8"
+  },
+  {
+    "title": "Generation of complex bone marrow organoids from human induced pluripotent stem cells",
+    "authors": "Stephanie Frenz-Wiessner et al.",
+    "year": 2024,
+    "journal": "Nature Methods",
+    "url": "https://www.nature.com/articles/s41592-024-02172-2"
+  },
+  {
+    "title": "Multifaceted bone response to immunomodulatory magnesium implants: Osteopromotion at the interface and adipogenesis in the bone marrow",
+    "authors": "Heithem Ben Amara et al.",
+    "year": 2025,
+    "journal": "Biomaterials",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0142961224003132?via%3Dihub&__cf_chl_tk=6ssT3y.BH3HeMUIJfGSRk.h.UdbVAyDHiYtVPQ8QQgs-1770660614-1.0.1.1-9uqCdRWmhs1jlW126iG9ckzwV0oJkoFwRreGnamFH7c"
+  },
+  {
+    "title": "Distinct molecular profiles of skull bone marrow in health and neurological disorders",
+    "authors": "Zeynep Ilgin Kolabas et al.",
+    "year": 2023,
+    "journal": "Cell",
+    "url": "https://www.cell.com/cell/fulltext/S0092-8674%2823%2900742-0"
+  },
+  {
+    "title": "Redefining the topology of the human bone marrow using augmented spatial transcriptomic analysis",
+    "authors": "Rosalin A Cooper et al.",
+    "year": 2025,
+    "journal": "bioRXiv",
+    "url": "https://www.biorxiv.org/content/10.64898/2025.12.22.694222v1"
+  },
+  {
+    "title": "Extracellular vesicles in osteoimmunomodulation: Orchestrating immune-driven bone regeneration",
+    "authors": "Femke Pol et al.",
+    "year": 2026,
+    "journal": "International Journal of Biological Macromolecules",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0141813025101712?via%3Dihub"
+  },
+  {
+    "title": "CleanUpRNAseq: An R/Bioconductor Package for Detecting and Correcting DNA Contamination in RNA-Seq Data",
+    "authors": "Haibo Liu et al.",
+    "year": 2024,
+    "journal": "BioTech",
+    "url": "https://www.mdpi.com/2673-6284/13/3/30"
+  },
+  {
+    "title": "Multimodal AI generates virtual population for tumor microenvironment modeling",
+    "authors": "Jeya Maria Jose Valanarasu et al.",
+    "year": 2026,
+    "journal": "Cell",
+    "url": "hhttps://www.cell.com/cell/fulltext/S0092-8674(25)01312-1?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretri"
+  },
+  {
+    "title": "Markers for human haematopoietic stem cells: The disconnect between an identification marker and its function",
+    "authors": "Beatrice Rix et al.",
+    "year": 2022,
+    "journal": "Sec. Cell Physiology",
+    "url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.1009160/full"
+  },
+  {
+    "title": "Fetal vs adult megakaryopoiesis",
+    "authors": "Patricia Davenport et al.",
+    "year": 2022,
+    "journal": "Blood",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0006497122001446"
+  },
+  {
+    "title": "Decoding vascular aging: Substrate stiffness and shear stress orchestrate endothelial inflammation and remodelling via mechanosensitive pathways",
+    "authors": "Austin Lai et al.",
+    "year": 2026,
+    "journal": "Biomaterials",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S014296122500852X?via%3Dihub"
+  },
+  {
+    "title": "“Triboelectric immunotherapy” powered osteogenesis and osteoimmune reprogramming for graft-free repair of bone defects",
+    "authors": "Jianghan Xia et al.",
+    "year": 2026,
+    "journal": "Chemical Engineering Journal",
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S1385894725118524?via%3Dihub"
+  },
+  {
+    "title": "Inflammatory stromal and T cells mediate human bone marrow niche remodeling in clonal hematopoiesis and myelodysplasia",
+    "authors": "Karin D. Prummel et al.",
+    "year": 2025,
+    "journal": "Nature Communications",
+    "url": "https://www.nature.com/articles/s41467-025-65803-y"
+  },
+  {
+    "title": "Epigenetic editing: from concept to clinic",
+    "authors": "Elizabeth A. Heller et al.",
+    "year": 2025,
+    "journal": "Nature Reviews Drug Discovery",
+    "url": "https://www.nature.com/articles/s41573-025-01323-0"
+  },
+  {
+    "title": "Human Multi-Organoid Platform to Model Immune Dynamics in Cardiac Injury and Disease",
+    "authors": "Jasmeet S. Reyat et al.",
+    "year": 2025,
+    "journal": "Circulation Research",
+    "url": "https://www.ahajournals.org/doi/10.1161/CIRCRESAHA.125.326823"
+  }, 
+  {
+    "title": "An adipo-osteoprogenitor population in the endosteal niche contributes to bone and fat formation in adult mouse bone marrow",
+    "authors": "Xueyang Liao et al.",
+    "year": 2025,
+    "journal": "PNAS",
+    "url": "https://www.pnas.org/doi/10.1073/pnas.2502436122"
+  },
+  {
+    "title": "The role of the haematopoietic stem cell niche in development and ageing",
+    "authors": "Terri L. Cain et al.",
+    "year": 2025,
+    "journal": "Nature Reviews Molecular Cell Biology",
+    "url": "https://www.nature.com/articles/s41580-024-00770-8"
+  },
+  {
+    "title": "Guidelines for T cell nomenclature",
+    "authors": "David Masopust et al.",
+    "year": 2025,
+    "journal": "Nature Reviews Immunology",
+    "url": "https://www.nature.com/articles/s41577-025-01238-2"
+  }, 
+  {
+    "title": "B cells drive CD4 T cell immunosenescence and age-associated health decline",
+    "authors": "Saad Khan et al.",
+    "year": 2026,
+    "journal": "Science Immunology",
+    "url": "https://www.science.org/doi/10.1126/sciimmunol.adv7615?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed"
+  }, 
+  {
+    "title": "Arteriolar niches maintain haematopoietic stem cell quiescence",
+    "authors": "Yuya Kunisaki et al.",
+    "year": 2013,
+    "journal": "Nature",
+    "url": "https://www.nature.com/articles/nature12612"
+  },
+  {
+    "title": "Depleting myeloid-biased haematopoietic stem cells rejuvenates aged immunity",
+    "authors": "Jason B. Ross et al.",
+    "year": 2024,
+    "journal": "Nature",
+    "url": "https://www.nature.com/articles/s41586-024-07238-x"
+  },
+  {
+    "title": "Comparative Transcriptomic Analysis of the Hematopoietic System between Human and Mouse by Single Cell RNA Sequencing",
+    "authors": "Shouguo Gao et al.",
+    "year": 2021,
+    "journal": "Cells",
+    "url": "https://www.mdpi.com/2073-4409/10/5/973"
+  },
+  {
+    "title": "Lack of CpG islands in human unitary pseudogenes and its implication",
+    "authors": "Khan et al.",
+    "journal": "Mammalian Genomics",
+    "year": 2021,
+    "tags": ["Genomics", "CpG", "Pseudogenes"],
+    "pdf": "/khan-et-al.pdf",
+    "link": "https://link.springer.com/article/10.1007/s00335-021-09893-1",
+    "featured": true
+  }
+]

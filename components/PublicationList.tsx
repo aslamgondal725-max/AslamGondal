@@ -1,20 +1,16 @@
-import PublicationItem from './PublicationItem'
-import data from './data/publications.json'
+import publicationsData from "./data/publications.json";
+import PublicationItem from "./PublicationItem";
 
-const PublicationList = (): JSX.Element => {
-    return (
-        <section className="grid w-full" id="publications">
-            <h2 className="text-xl font-bold mt-12 mb-4">Publications</h2>
-            <div>
-              {data.map((publication, index) => (
-                <PublicationItem publication={publication} index={index} key={index}/>
-              ))}
-            </div>
+const publications = Array.isArray(publicationsData) ? publicationsData : [];
 
-        </section>
-    );
+const PublicationList = () => {
+  return (
+    <ul className="space-y-6">
+      {publications.map((p, i) => (
+        <PublicationItem key={`${p.title}-${i}`} publication={p} index={i} />
+      ))}
+    </ul>
+  );
 };
-
-
 
 export default PublicationList;

@@ -1,25 +1,46 @@
 [
-    {
-        "title": "Quidditch Seeker SDK",
-        "description": "A tool help you practice Quidditch Cup Champion",
-        "img": "/images/projects/rules.png"
-    },
-
-    {
-        "title": "Quidditch Seeker Tool",
-        "description": "A tool help you win Quidditch Cup Champion",
-        "img": "/images/projects/quidditch.png"
-    },
-
-    {
-        "title": "Quidditch Seeker SDK",
-        "description": "A tool help you practice Quidditch Cup Champion",
-        "img": "/images/projects/rules.png"
-    },
-
-    {
-        "title": "Quidditch Seeker Tool",
-        "description": "A tool help you win Quidditch Cup Champion",
-        "img": "/images/projects/quidditch.png"
-    }
+  {
+    "title": "Biofabrication of Vascularized Mini-bones",
+    "subtitle": "Integration of blood vessel organoids with mineralized osteogenic spheroids",
+    "description": "Developed vascularized mini-bone constructs by integrating iPSC-derived blood vessel organoids with mineralized osteogenic spheroids to model bone–vascular interactions. Performed culture optimization and multi-modal characterization (histology, imaging, molecular readouts) to assess tissue maturation and mineralization. The shown image is of blood vessel organoid used in the project. Surface rendering of CD31 staining is performed using Imaris",
+    "image": "/images/projects/VascularizedOrganoids.png",
+    "tags": ["Biofabrication", "Organoids", "Spheroids", "Bone"],
+    "featured": true,
+    "links": [{ "name": "cv", "url": "/CV.pdf" }]
+  },
+  {
+    "title": "Mineralized ADSC-Derived Spheroids",
+    "subtitle": "Osteogenic differentiation and characterization workflow",
+    "description": "Generated and characterized mineralized spheroids from adipose-derived stem cells (ASCs). Optimized osteogenic culture conditions and performed viability assays (Calcein AM/PI), histology, and fluorescence/confocal microscopy-based analysis. The attached image is of Mineralized spheroid to show cellular distribution with ASC spheroid. Phalloidin staining",
+    "image": "/images/projects/adsc-spheroids.png",
+    "tags": ["ADSC", "Osteogenesis", "3D culture", "Microscopy"],
+    "featured": false,
+    "links": []
+  },
+  {
+    "title": "Molecular Parasitology & Diagnostics (Fasciola)",
+    "subtitle": "18S rRNA PCR marker development and sample characterization",
+    "description": "Molecular characterization of Fasciola samples from multiple regions of Pakistan. Developed and applied 18S rRNA-based PCR markers for species-specific identification to support diagnostic workflows.",
+    "tags": ["PCR", "Diagnostics", "Parasitology"],
+    "featured": false,
+    "links": []
+  },
+  {
+    "title": "Master's Thesis Research – Molecular Cloning and Antibody Generation",
+    "subtitle": "Lahore University of Management Sciences (LUMS)",
+    "description": "Conducted master's thesis research focused on molecular cloning, expression, and purification of antigenic regions of Suppressor of Sable and Ballchen proteins from Drosophila melanogaster. Generated polyclonal antibodies against the antigenic region of Ballchen through rabbit immunization and downstream validation. The attached image is of Recombinant plasmid of pET21a-Su(s) construct built in Vector NTI",
+    "image": "/images/projects/masters-thesis-lums.jpg",
+    "tags": ["Molecular Cloning", "Protein Expression", "Antibody Generation", "Immunology"],
+    "featured": false,
+    "links": []
+  },
+  {
+    "title": "Food Biotechnology Projects",
+    "subtitle": "Mushroom cultivation optimization and caffeine quantification by HPLC",
+    "description": "Influence of sample preparation method on the Caffeine Extraction in Coffee. HPLC was used to assess caffeine extraction efficiency from coffee. The attached image is of The chromatogram of coffee sample of 0.4g/40 ml",
+    "image": "/images/projects/hplc-foodbiotech.png",
+    "tags": ["HPLC", "Bioprocessing", "Food biotechnology"],
+    "featured": false,
+    "links": []
+  }
 ]

@@ -1,0 +1,58 @@
+{
+  "conferencesAndWorkshops": [
+    {
+      "title": "Scientific Conference of the Society for Laboratory Animal Science (GV-SOLAS)",
+      "location": "Würzburg, Germany",
+      "year": "2024",
+      "certificatePdf": "/cert17_61.GV-SOLAS_0702.pdf"
+    },
+    {
+      "title": "Trieste Next Festival — “The Horizons of Intelligence: Knowledge and the Human-Technology Frontier”",
+      "location": "Trieste, Italy",
+      "year": "2024",
+      "certificatePdf": "/TriesteNext-Certificate.pdf"
+    },
+    {
+      "title": "Imaris Workshop (2-day)",
+      "location": "Rudolph Virchow Center, Würzburg, Germany",
+      "year": "2024",
+      "certificatePdf": "/Imaris-workshop.pdf"
+    }
+  ],
+  "posterPresentations": [
+    {
+      "title": "Osteoinductive Mineral Particle-Mediated Differentiation in Stem Cell Spheroids for Scalable Fabrication of Bone-like Microtissues",
+      "event": "International Society for Biofabrication (ISBF)",
+      "year": "2025",
+      "linkedinPost": "https://www.linkedin.com/posts/muhammad-aslam-61884110b_biofab2025-bonetissuebiofabrication-biomaterials-activity-7338539450332831744-77Cy?utm_source=share&utm_medium=member_desktop&rcm=ACoAABu13jQBbPVZC9z6ip_UdVN7yd-4HTs_BqQ"
+    }
+  ],
+  "languages": {
+    "native": ["Punjabi", "Urdu"],
+    "other": [
+      { "language": "English", "level": "C1" },
+      { "language": "German", "level": "A1" }
+    ]
+  },
+  "recommendations": [
+    {
+      "name": "Dr. Taufiq Ahmad",
+      "role": "Master’s Thesis Supervisor",
+      "affiliation": "University of Würzburg",
+      "url": "https://www.fmz.uni-wuerzburg.de/colleagues/taufiq-ahmad/"
+    },
+    {
+      "name": "Dr. Christin Fischer",
+      "role": "S1 Project Supervisor",
+      "affiliation": "Anhalt University of Applied Sciences",
+      "url": "https://www.hs-anhalt.de/hochschule-anhalt/service/personenverzeichnis/person/christin-fischer.html",
+      "letterPdf": "/LetterofRecommendation_Aslam.pdf"
+    },
+    {
+      "name": "Dr. rer. nat. Malik Salman Haider",
+      "role": "Research Supervisor",
+      "affiliation": "University Hospital Würzburg",
+      "url": "https://www.ukw.de/augenklinik/team/augenklinik-detail/name/haider-malik-salman/"
+    }
+  ]
+}

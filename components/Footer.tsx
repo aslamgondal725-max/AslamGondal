@@ -1,23 +1,61 @@
-import personalInfo from './data/personalInfo.json';
-import SupportingBox from './SupportingBox';
-
+import Image from "next/image";
+import personalInfo from "./data/personalInfo.json";
 
 const Footer = (): JSX.Element => {
-    const iconStyle = "hover:bg-gray-300 dark:hover:bg-gray-600 p-1 rounded-md";
+  const links = [
+    {
+      name: "CV",
+      href: "/CV.pdf", // ✅ matches public/CV.pdf exactly
+      icon: "/images/cv-file-interface-symbol-svgrepo-com.svg",
+      alt: "CV",
+    },
+    {
+      name: "Twitter",
+      href: personalInfo.socialMedia.Twitter,
+      icon: "/images/icons8-twitter.svg",
+      alt: "Twitter",
+    },
+    {
+      name: "LinkedIn",
+      href: personalInfo.socialMedia.LinkedIn,
+      icon: "/images/icons8-linkedin.svg",
+      alt: "LinkedIn",
+    },
+  ];
 
-    return (
-        <footer>
-            <div className="mb-9 pb-0 pl-6 max-w-4xl flex items-center justify-between text-sm opacity-60 m-auto pt-20 pr-5">
-                <p> &copy; {new Date().getFullYear()}. {personalInfo.copyright}</p>
-                <SupportingBox></SupportingBox>
-            </div>
-            
-            <p className="text-center text-sm opacity-40 dark:opacity-50 pb-4 pt-4">
-                Built with <i>Next.js, TailwindCSS</i> and <a href = {personalInfo.love}>💛</a>
-                . {' '}
-            </p>
-        </footer>
-    );
+  // Optional: only add Google Scholar if you set a URL
+  if (personalInfo.socialMedia.GoogleScholar) {
+    links.push({
+      name: "Google Scholar",
+      href: personalInfo.socialMedia.GoogleScholar,
+      icon: "/images/icons8-google-scholar.svg",
+      alt: "Google Scholar",
+    });
+  }
+
+  return (
+    <footer className="mt-16 pb-10">
+      <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
+        <p className="text-gray-500 dark:text-gray-400">© 2026. MuhammadAslam</p>
+
+        {/* ✅ keeps icons away from extreme corner */}
+        <div className="flex items-center gap-6 pr-10">
+          {links.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-70 hover:opacity-100 transition"
+              aria-label={item.name}
+            >
+              <Image src={item.icon} alt={item.alt} width={26} height={26} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

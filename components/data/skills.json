@@ -1,0 +1,49 @@
+[
+  {
+    "category": "Research & Biofabrication Skills",
+    "items": [
+      "Cell culture of hiPSCs and primary human cells",
+      "3D spheroid fabrication using hydrogel moulds",
+      "Development and characterization of iPSC-derived blood vessel organoids",
+      "Viability assays (Calcein AM / Propidium Iodide)",
+      "PicoGreen DNA quantification assay",
+      "Histology and staining (H&E, von Kossa, Masson's trichrome, Giemsa)",
+      "Immunofluorescence staining and imaging workflows",
+      "Microscopy: confocal and fluorescence imaging (e.g., Keyence)",
+      "Scanning electron microscopy (SEM) sample preparation and imaging",
+      "Energy-dispersive X-ray spectroscopy (EDX)",
+      "Inductively coupled plasma mass spectrometry (ICP-MS)",
+      "Molecular biology workflows: RNA extraction, cDNA synthesis, qRT-PCR, and data analysis",
+      "PCR methods: RT-PCR, conventional PCR, and gel electrophoresis",
+      "Restriction fragment length polymorphism (RFLP)",
+      "Protein analysis workflows: Western blotting and SDS-PAGE",
+      "Chromatography: HPLC and IMAC (Immobilized Metal Ion Affinity Chromatography)",
+      "ELISA",
+      "Microbiology staining: Gram staining, acid-fast staining, endospore staining, and capsule staining",
+      "CRISPR-Cas9",
+      "Transfection into plants",
+      "Model organism work: Drosophila maintenance and handling; dissections of model organisms (e.g., fruit flies, frog)",
+      "Antibody generation"
+    ]
+  },
+  {
+    "category": "Bioinformatics & Programming Skills",
+    "items": [
+      "R (tidyverse, Seurat; scRNA-seq preprocessing, QC, clustering, DEG, enrichment)",
+      "Python (pandas, numpy; basic scripting for analysis/automation)",
+      "RNA-seq / transcriptomics analysis workflows (DEG, pathway/enrichment interpretation)",
+      "Image analysis tools: ImageJ/Fiji, ilastik, QuPath; Imaris for 3D rendering",
+      "General scientific data handling, visualization, and reproducible reporting"
+    ]
+  },
+  {
+    "category": "Analytical & Professional Skills",
+    "items": [
+      "Experimental design, troubleshooting, and documentation",
+      "Clear scientific writing and presentation",
+      "Effective teamwork and cross-disciplinary collaboration",
+      "Strong communication with students, supervisors, and stakeholders",
+      "Time management and delivery under deadlines"
+    ]
+  }
+]
