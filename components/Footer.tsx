@@ -5,7 +5,7 @@ const Footer = (): JSX.Element => {
   const links = [
     {
       name: "CV",
-      href: "/CV.pdf", // ✅ matches public/CV.pdf exactly
+      href: personalInfo.love || "/cv.pdf", // ✅ uses personalInfo, fallback safe
       icon: "/images/cv-file-interface-symbol-svgrepo-com.svg",
       alt: "CV",
     },
@@ -38,7 +38,6 @@ const Footer = (): JSX.Element => {
       <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
         <p className="text-gray-500 dark:text-gray-400">© 2026. MuhammadAslam</p>
 
-        {/* ✅ keeps icons away from extreme corner */}
         <div className="flex items-center gap-6 pr-10">
           {links.map((item) => (
             <a
