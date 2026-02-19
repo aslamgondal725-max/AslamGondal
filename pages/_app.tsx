@@ -1,8 +1,8 @@
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -19,19 +19,26 @@ function MyApp({ Component, pageProps }: AppProps) {
           property="og:description"
           content="Biofabrication researcher working on vascularized tissue models, bone marrow systems, organoids, and 3D in vitro platforms."
         />
-        <meta property="og:url" content="https://magondal.com" />
+        <meta property="og:url" content="https://magondal.com/" />
         <meta property="og:type" content="website" />
 
-        {/* Preview Image */}
-        <meta property="og:image" content="https://magondal.com/images/ProfilePhoto.png" />
+        {/* Preview Image (must be absolute for best sharing) */}
+        <meta property="og:image" content="https://magondal.com/og.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
-        {/* Optional but recommended */}
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Muhammad Aslam | Biofabrication Researcher" />
+        <meta
+          name="twitter:description"
+          content="Biofabrication researcher working on vascularized tissue models, bone marrow systems, organoids, and 3D in vitro platforms."
+        />
+        <meta name="twitter:image" content="https://magondal.com/og.png" />
+        <meta name="twitter:url" content="https://magondal.com/" />
       </Head>
 
       <Component {...pageProps} />
     </>
   );
 }
-
-export default MyApp;
