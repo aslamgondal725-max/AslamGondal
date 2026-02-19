@@ -2,10 +2,12 @@ import Image from "next/image";
 import personalInfo from "./data/personalInfo.json";
 
 const Footer = (): JSX.Element => {
+  const siteUrl = (personalInfo.domain || "").replace(/\/$/, "");
+
   const links = [
     {
       name: "CV",
-      href: personalInfo.love || "/cv.pdf", // ✅ uses personalInfo, fallback safe
+      href: `${siteUrl}/cv.pdf`, // ✅ absolute, always correct
       icon: "/images/cv-file-interface-symbol-svgrepo-com.svg",
       alt: "CV",
     },
@@ -23,7 +25,6 @@ const Footer = (): JSX.Element => {
     },
   ];
 
-  // Optional: only add Google Scholar if you set a URL
   if (personalInfo.socialMedia.GoogleScholar) {
     links.push({
       name: "Google Scholar",
