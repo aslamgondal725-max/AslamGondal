@@ -1,0 +1,9 @@
+/* Global styles (required for Next.js build) */
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
