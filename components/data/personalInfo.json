@@ -1,54 +1,88 @@
-"education": [
-  {
-    "name": "M.Sc. Molecular Biotechnology — Anhalt University of Applied Sciences, Germany",
-    "link": "https://www.hs-anhalt.de/",
-    "documents": [
-      {
-        "label": "transcript",
-        "requestLink": "https://drive.google.com/file/d/109K7qgBp9FYzjWq1vPLn39fF9Zu61Y5H/view?usp=sharing"
-      }
-    ]
+{
+  "title": "Muhammad Aslam | Biofabrication Researcher",
+  "name": "Muhammad Aslam",
+  "domain": "https://magondal.com",
+  "copyright": "MuhammadAslam",
+
+  "socialMedia": {
+    "Twitter": "https://x.com/aslamgondal5",
+    "LinkedIn": "https://www.linkedin.com/in/muhammad-aslam-61884110b",
+    "GoogleScholar": ""
   },
-  {
-    "name": "M.S. Biology (Molecular Biology) — Lahore University of Management Sciences (LUMS), Pakistan",
-    "link": "https://lums.edu.pk/",
-    "documents": [
-      {
-        "label": "certificate",
-        "requestLink": "https://drive.google.com/file/d/1VWZr09EmajzkKh6mkw0T5C-7fDLh2vOx/view?usp=sharing"
-      },
-      {
-        "label": "transcript",
-        "requestLink": "https://drive.google.com/file/d/1DA0lGxkRVxc2s-EEFuZIYFnFHX4g_sqd/view?usp=sharing"
-      }
-    ]
+
+  "about": {
+    "degree": "M.Sc. Molecular Biotechnology",
+    "department": {
+      "name": "Molecular Biotechnology",
+      "link": "https://www.hs-anhalt.de/"
+    },
+    "college": {
+      "name": "Anhalt University of Applied Sciences",
+      "link": "https://www.hs-anhalt.de/"
+    },
+    "thesisInstitution": {
+      "name": "Julius-Maximilians-Universität Würzburg",
+      "link": "https://www.fmz.uni-wuerzburg.de/"
+    },
+    "email": "aslamgondal725@gmail.com",
+    "bio": "I hold an M.Sc. in Molecular Biotechnology. My master’s thesis focused on the biofabrication of vascularized mini-bone constructs through the integration of stem-cell-derived spheroids and blood vessel organoids.",
+    "interest": "Biofabrication of vascularized tissue models; application of the 3R principles to develop advanced 3D human in vitro systems as alternatives to animal models; bone marrow modeling with a focus on the development of immunoid platforms for studying hematological malignancies."
   },
-  {
-    "name": "M.Sc. (16 years) Animal Sciences (Zoology) — Quaid-e-Azam University (QAU), Pakistan",
-    "link": "https://qau.edu.pk/",
-    "documents": [
-      {
-        "label": "certificate",
-        "requestLink": "https://drive.google.com/file/d/12EYViDTT_0C1MVIzmyVxjOeP1fQODnPb/view?usp=sharing"
-      },
-      {
-        "label": "transcript",
-        "requestLink": "https://drive.google.com/file/d/1k4b142g4YG2zBUKFdVvhonTLsmf2Gmhm/view?usp=sharing"
-      }
-    ]
-  },
-  {
-    "name": "B.Sc. (14 years) Biology (Botany, Zoology & Chemistry) — University of Gujrat, Pakistan",
-    "link": "https://uog.edu.pk/",
-    "documents": [
-      {
-        "label": "certificate",
-        "requestLink": "https://drive.google.com/file/d/1OXaAHCYR_41yFmf6Agax6IMSOQhdg7F2/view?usp=drive_link"
-      },
-      {
-        "label": "transcript",
-        "requestLink": "https://drive.google.com/file/d/1S23Ma-_cCmwML4qZ-E-3_UE7veHdDFle/view?usp=drive_link"
-      }
-    ]
-  }
-]
+
+  "love": "/cv.pdf",
+
+  "education": [
+    {
+      "name": "M.Sc. Molecular Biotechnology — Anhalt University of Applied Sciences, Germany",
+      "link": "https://www.hs-anhalt.de/",
+      "documents": [
+        {
+          "label": "transcript",
+          "requestLink": "https://drive.google.com/file/d/109K7qgBp9FYzjWq1vPLn39fF9Zu61Y5H/view?usp=sharing"
+        }
+      ]
+    },
+    {
+      "name": "M.S. Biology (Molecular Biology) — Lahore University of Management Sciences (LUMS), Pakistan",
+      "link": "https://lums.edu.pk/",
+      "documents": [
+        {
+          "label": "certificate",
+          "requestLink": "https://drive.google.com/file/d/1VWZr09EmajzkKh6mkw0T5C-7fDLh2vOx/view?usp=sharing"
+        },
+        {
+          "label": "transcript",
+          "requestLink": "https://drive.google.com/file/d/1DA0lGxkRVxc2s-EEFuZIYFnFHX4g_sqd/view?usp=sharing"
+        }
+      ]
+    },
+    {
+      "name": "M.Sc. (16 years) Animal Sciences (Zoology) — Quaid-e-Azam University (QAU), Pakistan",
+      "link": "https://qau.edu.pk/",
+      "documents": [
+        {
+          "label": "certificate",
+          "requestLink": "https://drive.google.com/file/d/12EYViDTT_0C1MVIzmyVxjOeP1fQODnPb/view?usp=sharing"
+        },
+        {
+          "label": "transcript",
+          "requestLink": "https://drive.google.com/file/d/1k4b142g4YG2zBUKFdVvhonTLsmf2Gmhm/view?usp=sharing"
+        }
+      ]
+    },
+    {
+      "name": "B.Sc. (14 years) Biology (Botany, Zoology & Chemistry) — University of Gujrat, Pakistan",
+      "link": "https://uog.edu.pk/",
+      "documents": [
+        {
+          "label": "certificate",
+          "requestLink": "https://drive.google.com/file/d/1OXaAHCYR_41yFmf6Agax6IMSOQhdg7F2/view?usp=drive_link"
+        },
+        {
+          "label": "transcript",
+          "requestLink": "https://drive.google.com/file/d/1S23Ma-_cCmwML4qZ-E-3_UE7veHdDFle/view?usp=drive_link"
+        }
+      ]
+    }
+  ]
+}
