@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import Layout from "../components/Layout";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +14,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           content="Muhammad Aslam — Biofabrication researcher focused on vascularized tissue models, organoids, spheroids, and advanced 3D human in vitro systems."
         />
 
-        {/* OpenGraph (LinkedIn / Social Media Preview) */}
+        {/* OpenGraph */}
         <meta property="og:title" content="Muhammad Aslam | Biofabrication Researcher" />
         <meta
           property="og:description"
@@ -21,8 +22,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta property="og:url" content="https://magondal.com/" />
         <meta property="og:type" content="website" />
-
-        {/* Preview Image (must be absolute for best sharing) */}
         <meta property="og:image" content="https://magondal.com/og.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -38,7 +37,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:url" content="https://magondal.com/" />
       </Head>
 
-      <Component {...pageProps} />
+      {/* ✅ Restore global layout (Header/Footer/Container) */}
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
