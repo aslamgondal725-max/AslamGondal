@@ -4,8 +4,14 @@ type Conference = {
   title: string;
   location: string;
   year: string;
+
+  // OLD (kept for backward compatibility if you ever use it)
   certificatePdf?: string;
-  note?: string; // ✅ allow optional note
+
+  // NEW (Drive request-access link)
+  requestLink?: string;
+  requestLabel?: string; // e.g. "certificate", "transcript"
+  note?: string;
 };
 
 type Poster = {
@@ -68,15 +74,29 @@ const Misc = (): JSX.Element => {
                   )}
                 </div>
 
-                {c.certificatePdf && (
+                {/* NEW: request-access chip (preferred) */}
+                {c.requestLink ? (
                   <a
-                    href={c.certificatePdf}
+                    href={c.requestLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={chip}
+                    title="This document is available upon request"
                   >
-                    certificate
+                    {(c.requestLabel || "certificate") + " · upon request"}
                   </a>
+                ) : (
+                  /* OLD: direct public PDF (fallback) */
+                  c.certificatePdf && (
+                    <a
+                      href={c.certificatePdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={chip}
+                    >
+                      certificate
+                    </a>
+                  )
                 )}
               </div>
             </li>
