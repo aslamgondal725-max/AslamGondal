@@ -1,13 +1,19 @@
-import { NextPage } from "next";
-
+import type { GetStaticProps, NextPage } from "next";
 import About from "../components/About";
-import Education from "../components/Education";
-import Teaching from "../components/Teaching";
+import { getAllPostsMeta, type BlogListItem } from "../lib/blog";
 
-const Index: NextPage = () => (
-  <>
-    <About />
-  </>
-);
+type Props = {
+  latestBlog: BlogListItem | null;
+};
+
+const Index: NextPage<Props> = ({ latestBlog }) => {
+  return <About latestBlog={latestBlog} />;
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const posts = getAllPostsMeta();
+  const latestBlog = posts.length > 0 ? posts[0] : null;
+  return { props: { latestBlog } };
+};
 
 export default Index;

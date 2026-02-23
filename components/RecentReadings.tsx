@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import readings from "./data/readings.json";
 
 type Reading = {
@@ -9,30 +9,44 @@ type Reading = {
   url: string;
 };
 
-const ROTATE_MS = 6500; // time each set stays
-const ANIM_MS = 450; // fade/slide duration
+const ROTATE_MS = 6500;
+const ANIM_MS = 450;
 const SHOW_COUNT = 3;
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
 const RecentReadings = (): JSX.Element => {
   const list = (readings as Reading[]) ?? [];
 
-  // Shuffle once per mount so it feels "live" but stable within a session
-  const shuffled = useMemo(() => {
-    const copy = [...list];
-    for (let i = copy.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [copy[i], copy[j]] = [copy[j], copy[i]];
-    }
-    return copy;
-  }, [list.length]);
-
+  // ✅ SSR-stable first render (server & first client render match)
+  const [shuffled, setShuffled] = useState<Reading[]>(list);
   const [startIdx, setStartIdx] = useState(0);
   const [phase, setPhase] = useState<"in" | "out">("in");
+
+  const timeoutRef = useRef<number | null>(null);
+
+  // ✅ Shuffle AFTER mount (client only) to avoid hydration mismatch
+  useEffect(() => {
+    if (!list.length) return;
+    setShuffled(shuffleArray(list));
+    setStartIdx(0);
+    setPhase("in");
+    // run once on mount intentionally
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const visible = useMemo(() => {
     if (!shuffled.length) return [];
     const items: Reading[] = [];
-    for (let k = 0; k < Math.min(SHOW_COUNT, shuffled.length); k++) {
+    const count = Math.min(SHOW_COUNT, shuffled.length);
+    for (let k = 0; k < count; k++) {
       items.push(shuffled[(startIdx + k) % shuffled.length]);
     }
     return items;
@@ -42,17 +56,20 @@ const RecentReadings = (): JSX.Element => {
     if (!shuffled.length) return;
 
     const interval = window.setInterval(() => {
-      // animate out
       setPhase("out");
 
-      // after fade-out completes, advance and animate in
-      window.setTimeout(() => {
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+
+      timeoutRef.current = window.setTimeout(() => {
         setStartIdx((prev) => (prev + SHOW_COUNT) % shuffled.length);
         setPhase("in");
       }, ANIM_MS);
     }, ROTATE_MS);
 
-    return () => window.clearInterval(interval);
+    return () => {
+      window.clearInterval(interval);
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    };
   }, [shuffled.length]);
 
   if (!list.length) {
@@ -69,14 +86,14 @@ const RecentReadings = (): JSX.Element => {
   }
 
   return (
-    <div className="rounded-2xl border border-gray-200 dark:border-gray-800 p-5 bg-white/50 dark:bg-gray-950/30">
-      <div className="flex items-center justify-between gap-4">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-          Recent Readings
+    <aside className="rounded-2xl border border-gray-200 dark:border-gray-800 p-5 bg-white/50 dark:bg-gray-950/30">
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 leading-tight">
+          Recent <br /> Readings
         </h3>
-        <span className="text-xs text-gray-500 dark:text-gray-400">
-          auto-rotating
-        </span>
+
+        {/* ✅ force it to stay visible */}
+        <span className="sr-only">auto-rotating</span>
       </div>
 
       <div
@@ -86,9 +103,9 @@ const RecentReadings = (): JSX.Element => {
           phase === "in" ? "rr-in" : "rr-out",
         ].join(" ")}
       >
-        {visible.map((r, i) => (
+        {visible.map((r) => (
           <a
-            key={`${r.url}-${i}`}
+            key={r.url}
             href={r.url}
             target="_blank"
             rel="noreferrer"
@@ -108,11 +125,10 @@ const RecentReadings = (): JSX.Element => {
         ))}
       </div>
 
-      {/* Optional: small controls later if you want */}
       <p className="mt-4 text-xs text-gray-500 dark:text-gray-400">
         Showing {Math.min(SHOW_COUNT, list.length)} of {list.length}
       </p>
-    </div>
+    </aside>
   );
 };
 

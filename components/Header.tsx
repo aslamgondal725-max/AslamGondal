@@ -36,6 +36,7 @@ const Header = ({ mounted, resolvedTheme, setTheme, scrolled }: HeaderProps): JS
           <NavLink title="Publications" href="/publications" />
           <NavLink title="Projects" href="/projects" />
           <NavLink title="Skills" href="/skills" />
+          <NavLink title="Blogs" href="/blogs" />
           <NavLink title="Misc" href="/misc" />
 
           {mounted ? (
