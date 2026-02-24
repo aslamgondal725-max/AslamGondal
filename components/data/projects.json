@@ -6,7 +6,7 @@
     "image": "/images/projects/VascularizedOrganoids.png",
     "tags": ["Biofabrication", "Organoids", "Spheroids", "Bone"],
     "featured": true,
-    "links": [{ "name": "cv", "url": "/cv.pdf" }]
+    "links": []
   },
   {
     "title": "Mineralized ADSC-Derived Spheroids",

@@ -100,13 +100,17 @@ const About = ({ latestBlog }: Props): JSX.Element => {
                 </div>
 
                 <Image
-                  src="/images/ProfilePhoto.png"
+                  src="/Profile_photo.JPG"
                   alt={personalInfo.name}
                   width={900}
-                  height={900}
+                  height={1400}
                   priority
-                  className="h-[360px] w-full object-cover object-top sm:h-[460px] xl:h-[520px]"
+                  className="h-[380px] w-full object-cover object-[center_18%] sm:h-[500px] xl:h-[560px]"
                 />
+
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-14 bg-gradient-to-r from-white/55 to-transparent dark:from-slate-900/50" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-white/55 to-transparent dark:from-slate-900/50" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-slate-900/10 to-transparent" />
 
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/65 via-slate-900/20 to-transparent p-4">
                   <div className="grid grid-cols-3 gap-2">
