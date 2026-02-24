@@ -18,7 +18,7 @@ tags:
 
 # Engineering the Endosteal Niche: A Critical Analysis of the eVON Model
 
-*A deep dive into a new hiPSC-derived vascularized osteoblastic organoid system and the questions it raises about mimicking bone marrow biology.*
+*What if the key to myeloid dominance in the eVON isn`t added signals-but missing osteogenic maturity?*
 
 ## Introduction: The Niche Problem
 
