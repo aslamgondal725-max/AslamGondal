@@ -45,12 +45,15 @@ const Header = ({ mounted, resolvedTheme, setTheme, scrolled }: HeaderProps): JS
       >
         <div className="flex h-16 items-center justify-between gap-3">
           <Link href="/" className="min-w-0">
-            <span className="group relative inline-flex items-center overflow-hidden rounded-xl border border-slate-900/80 bg-white px-3 py-2 shadow-[0_6px_18px_rgba(15,23,42,0.08)] transition hover:-translate-y-0.5 hover:shadow-[0_10px_22px_rgba(37,99,235,0.14)] dark:border-slate-200/70 dark:bg-slate-950">
+            <span className="group relative inline-flex items-center overflow-hidden rounded-2xl border border-slate-900/80 bg-white pr-3 shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(37,99,235,0.12)] dark:border-slate-200/70 dark:bg-slate-950">
+              <span className="relative flex h-full items-center bg-gradient-to-b from-blue-500 to-sky-400 px-2.5 py-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-white/95 shadow-sm" />
+              </span>
               <span
                 aria-hidden="true"
-                className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-blue-500 to-sky-400"
+                className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/50 opacity-0 transition group-hover:opacity-100"
               />
-              <span className="pl-2 text-[11px] font-extrabold tracking-[0.2em] text-slate-900 dark:text-slate-100">
+              <span className="pl-2.5 text-[11px] font-extrabold tracking-[0.2em] text-slate-900 dark:text-slate-100">
                 {personalInfo.name.toUpperCase()}
               </span>
             </span>
@@ -77,7 +80,9 @@ const Header = ({ mounted, resolvedTheme, setTheme, scrolled }: HeaderProps): JS
             )}
 
             <a
-              href={`mailto:${personalInfo.about.email}`}
+              href={`mailto:Aslamgondal725@gmail.com?subject=Website%20Inquiry`}
+              title="Email: Aslamgondal725@gmail.com | Phone: +4915560801280"
+              aria-label="Contact me by email at Aslamgondal725@gmail.com or phone at +4915560801280"
               className="hidden h-10 items-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 text-sm font-semibold text-white shadow-[0_10px_22px_rgba(37,99,235,0.28)] transition hover:brightness-105 lg:inline-flex"
             >
               Contact Me

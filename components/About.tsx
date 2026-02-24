@@ -38,7 +38,7 @@ const About = ({ latestBlog }: Props): JSX.Element => {
     {
       name: "Biofabrication Würzburg",
       href: "https://www.fmz.uni-wuerzburg.de/biofabrication/",
-      logo: "/Logos/Biofabrication_Würzburg.png",
+      logo: "/Logos/Biofabrication_Wuerzburg.png",
     },
     {
       name: "IFB Würzburg",
@@ -98,18 +98,18 @@ const About = ({ latestBlog }: Props): JSX.Element => {
               {personalInfo.about.bio} My work focuses on vascularized tissue models, organoid integration, and advanced 3D human in vitro systems for translational research.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href={`mailto:${personalInfo.about.email}`}
-                className="inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(37,99,235,0.22)] transition hover:brightness-105"
-              >
-                Contact Me
-              </a>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
                 href="/projects"
                 className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
               >
                 View My Work
+              </a>
+              <a
+                href={`mailto:${personalInfo.about.email}`}
+                className="text-sm font-medium text-slate-600 underline decoration-slate-300 underline-offset-4 hover:text-blue-700 dark:text-slate-300 dark:decoration-slate-600 dark:hover:text-blue-300"
+              >
+                {personalInfo.about.email}
               </a>
             </div>
 
@@ -178,7 +178,7 @@ const About = ({ latestBlog }: Props): JSX.Element => {
                       <div className="text-[11px] text-slate-500 dark:text-slate-400">Projects</div>
                     </div>
                     <div className="rounded-xl bg-white/95 px-3 py-2 shadow-sm dark:bg-slate-900/90">
-                      <div className="text-xl font-bold text-blue-700 dark:text-blue-300">7+</div>
+                      <div className="text-xl font-bold text-blue-700 dark:text-blue-300">3+</div>
                       <div className="text-[11px] text-slate-500 dark:text-slate-400">Years</div>
                     </div>
                   </div>
@@ -262,21 +262,21 @@ const About = ({ latestBlog }: Props): JSX.Element => {
           <span className="soft-chip">{affiliations.length} institutions</span>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
           {affiliations.map((item) => (
             <a
               key={item.name}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex min-h-[88px] items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+              className="group flex min-h-[104px] items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
               aria-label={item.name}
               title={item.name}
             >
               <img
                 src={item.logo}
                 alt={item.name}
-                className="max-h-10 w-auto max-w-full object-contain opacity-80 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0"
+                className="max-h-14 w-auto max-w-full object-contain opacity-85 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0"
                 loading="lazy"
               />
             </a>
