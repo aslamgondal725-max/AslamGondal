@@ -23,8 +23,15 @@ export default function LatestBlogTeaser({ post }: Props) {
             {post.title}
           </Link>
 
+          {/* ✅ New: teaser question under title */}
+          {post.teaserQuestion && (
+            <p className="mt-2 text-sm font-medium text-gray-800 dark:text-gray-200 italic">
+              {post.teaserQuestion}
+            </p>
+          )}
+
           {post.excerpt && (
-            <p className="mt-2 text-gray-700 dark:text-gray-300">
+            <p className="mt-3 text-gray-700 dark:text-gray-300">
               {post.excerpt}
             </p>
           )}

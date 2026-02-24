@@ -8,11 +8,14 @@ const BLOG_DIR = path.join(process.cwd(), "content", "blogs");
 
 export type BlogFrontMatter = {
   title: string;
-  date: string; // ISO recommended: 2026-02-22
+  date: string;
   excerpt?: string;
   tags?: string[];
   paperTitle?: string;
   paperUrl?: string;
+
+  // ✅ new: shown in About-page teaser
+  teaserQuestion?: string;
 };
 
 // ✅ list item for index/teasers (includes slug)
@@ -90,6 +93,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     tags: Array.isArray(data.tags) ? data.tags.map(String) : undefined,
     paperTitle: data.paperTitle ? String(data.paperTitle) : undefined,
     paperUrl: data.paperUrl ? String(data.paperUrl) : undefined,
+    teaserQuestion: data.teaserQuestion ? String(data.teaserQuestion) : undefined,
   };
 
   return { slug, frontMatter, content: contentHtml };

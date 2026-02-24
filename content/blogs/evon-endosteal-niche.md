@@ -1,191 +1,91 @@
 ---
-title: "Engineering the Human Endosteal Niche: Reflections on the eVON Study"
+title: "Engineering the Endosteal Niche: A Critical Analysis of the eVON Model"
 date: "2026-02-22"
-slug: "engineering-the-human-endosteal-niche-evon"
-excerpt: "Reflections on the eVON organoid study: scaffold-assisted hiPSC vascularized osteoblastic niches, hematopoietic outcomes, and key open questions."
-tags:
-  - Bone marrow niche
-  - Endosteal niche
-  - Organoids
-  - hiPSC
-  - Hematopoiesis
+excerpt: "A deep dive into a new hiPSC-derived vascularized osteoblastic organoid system—and the questions it raises about faithfully mimicking bone marrow biology."
+teaserQuestion: "What if the key to myeloid dominance in the eVON isn`t added signals-but missing osteogenic maturity?"
 paperTitle: "Macro-scale, scaffold-assisted model of the human bone marrow endosteal niche using hiPSC-vascularized osteoblastic organoids"
-paperUrl: "https://www.sciencedirect.com/science/article/pii/S1934590925003777?via%3Dihub"
+paperUrl: "https://www.cell.com/cell-stem-cell/fulltext/S1934-5909(25)00377-7?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1934590925003777%3Fshowall%3Dtrue"
+tags:
+  - Organoids
+  - BoneMarrow
+  - HematopoieticStemCells
+  - TissueEngineering
+  - iPSC
+  - EndostealNiche
+  - Vascularization
+  - SingleCellAnalysis
 ---
 
-## Why this paper caught my attention
+# Engineering the Endosteal Niche: A Critical Analysis of the eVON Model
 
-One of the enduring challenges in bone marrow biology is recreating the complexity of the human hematopoietic microenvironment *in vitro*. Bone is not merely a structural tissue; it is an active, dynamic organ composed of at least two functionally distinct yet deeply interconnected compartments:
+*A deep dive into a new hiPSC-derived vascularized osteoblastic organoid system and the questions it raises about mimicking bone marrow biology.*
 
-- The **bone marrow niche**
-- The **endosteal niche**
+## Introduction: The Niche Problem
 
-While many organoid-based studies focus on the marrow niche, the endosteal niche remains comparatively underexplored—despite its critical role in hematopoietic stem and progenitor cell (HSPC) maintenance, quiescence, and lineage decisions.
+The bone marrow microenvironment represents one of the most complex regulatory systems in human physiology. At its core lies a fundamental architectural division: the **endosteal niche** (lining the bone surface) and the **perivascular niche** (surrounding sinusoidal blood vessels). While previous organoid models have successfully captured aspects of the perivascular compartment, the endosteal niche—critical for hematopoietic stem cell (HSC) quiescence and long-term maintenance—has remained frustratingly elusive.
 
-A particularly interesting contribution in this space is the study introducing engineered **Vascularised Osteoblastic Niches (eVONs)**.
+A recent study published in *Cell Stem Cell* introduces the engineered **Vascularized Osteoblastic Niche (eVON)**—a scaffold-based system combining hiPSC-derived osteogenic spheroids with vascular spheroids to model the human endosteal microenvironment. While this work represents a significant technical advance, it also raises important questions about developmental maturity, marker specificity, and translational relevance.
 
----
+## The Technical Architecture: Building eVONs
 
-## Conceptual design of the eVON model
+The study's core innovation lies in its biphasic assembly strategy. Researchers first differentiated hiPSCs through mesodermal induction to generate osteogenic spheroids, which were cultured on hydroxyapatite-coated scaffolds to mimic bone mineral. In parallel, vascular spheroids were generated and subsequently layered atop the osteogenic constructs once mature. This co-culture system was maintained for seven days before characterization.
 
-The study’s objective was to reconstruct features of the human endosteal niche using a scaffold-assisted organoid strategy, combining two building blocks:
+The resulting eVONs demonstrated several hallmark features of the endosteal niche:
 
-### 1) Osteogenic spheroids
-Derived from human induced pluripotent stem cells (hiPSCs) via mesodermal induction, these spheroids were cultured on **hydroxyapatite-coated scaffolds**, mimicking the mineralized bone interface.
+- **CD31⁺CD34⁺** endothelial networks forming vascular structures  
+- **NG2⁺** pericytes supporting vessel stability  
+- **Osteocalcin (OCN)⁺** matrix deposition indicating osteogenic activity  
+- **CD271⁺CD146⁺** stromal cells representing mesenchymal progenitors  
 
-### 2) Vascular spheroids
-Also generated from hiPSCs, vascular spheroids were seeded onto the osteogenic constructs after osteogenic maturation.
+Control “engineered Osteoblastic Niches” (eONs) lacked vascular components, allowing direct comparison.
 
-Following co-culture, the composite structures—termed **eVONs**—were maintained for seven days prior to characterization.  
-For comparison, engineered **osteoblastic niches (eONs)** lacking vascular components served as controls.
+## Hematopoietic Support: Promise and Complexity
 
----
+When hematopoietic stem and progenitor cells (HSPCs) were seeded into these constructs, the results revealed both the potential and limitations of the model.
 
-## Hallmarks of an engineered endosteal niche
+In vitro, eVONs showed enhanced maintenance of **HSPCs, MPPs, and myeloblasts** compared to eONs, while **HSCs, MLPs, and monocytes** remained equivalent. Interestingly, **megakaryocytes and non-myeloid cells** were higher in the avascular eONs—a counterintuitive finding that warrants deeper investigation.
 
-The eVON constructs displayed features associated with native endosteal biology:
+In vivo transplantation into immunodeficient NSG mice yielded more nuanced outcomes. Only **myeloblasts** showed eVON superiority, while lymphoid lineages (**B and T cells**) favored eON-derived cells. This suggests the vascular component may selectively support myeloid differentiation—a bias that could limit the model’s utility for studying complete hematopoiesis.
 
-- **CD31⁺ / CD34⁺** endothelial cells  
-- **NG2⁺** pericytes  
-- **OCN⁺** extracellular matrix  
-- **CD271⁺ / CD146⁺** stromal populations  
+## Critical Concerns: Methodological Red Flags
 
-Validated using:
+### The CD34 Ambiguity
 
-- Flow cytometry  
-- Immunofluorescence  
-- Scanning electron microscopy (SEM)  
+A major methodological concern is the study’s use of **CD34** as both an endothelial and hematopoietic marker without clear discrimination. CD34 identifies endothelial cells in vascular networks (Figure 1), but is also used to mark HSPCs (Figure 2). Without co-staining with hematopoietic markers (e.g., **CD45, CD38, lineage markers**), CD34⁺ cells near vessels cannot be conclusively identified as HSPCs rather than endothelial cells.
 
-Structurally, the model captured key aspects of vascularized osteoblastic architecture.
+### The Maturity Paradox
 
----
+Single-cell RNA-seq suggested osteogenic clusters expressed mostly early markers (**RUNX2**) with limited mature osteoblast signatures (e.g., **BGLAP**). This creates a tension: how do cells lacking mature osteoblast transcripts produce OCN⁺ protein detected by immunostaining?
 
-## Hematopoietic outcomes: in vitro vs in vivo
+Functionally, mature osteoblasts help maintain HSC quiescence via CXCL12/SCF and other factors. The need for exogenous cytokines (SCF, TPO, FLT3L) hints that resident niche cells may be immature or insufficient. If endothelial cells and osteoblasts are “present,” why is the niche not autonomously supportive beyond one week?
 
-After HSPC seeding, distinct lineage patterns emerged.
+### Unexpected Cellular Contaminants: Biology or Artifact?
 
-### In vitro observations
+The single-cell dataset contained unexpected populations (macrophage-like, epithelial, neural). The authors validated neural (TH⁺) and macrophage (CD68⁺) markers, but did not investigate origins. This matters—these populations could reflect off-target differentiation or confound HSPC behavior.
 
-**Higher representation in eVONs**
-- HSPCs  
-- Multipotent progenitors (MPPs)  
-- Myeloblasts  
+### The Transplantation Paradox
 
-**Higher representation in eONs**
-- Megakaryocytes  
-- Non-myeloid populations  
+The study demonstrates graft persistence in vivo, but if the goal is an in vitro model of hematopoiesis, in vivo survival is not the same as in vitro physiological fidelity. The field needs models that reduce animal dependence, not require implantation to demonstrate “functionality.”
 
-**Comparable across models**
-- HSCs  
-- Monocytes  
-- Multi-lymphoid progenitors (MLPs)
+## Strengths: What the Model Gets Right
 
-### In vivo transplantation findings
+Despite limitations, eVONs represent meaningful progress:
 
-When harvested HSPCs were transplanted into NSG mice:
+1. **Reproducibility across lines** (3 hiPSC lines)  
+2. **CXCR4–CXCL12 axis** functionally validated  
+3. **Endogenous VEGF signaling** supports angiogenesis  
+4. **Scaffold-based format** improves accessibility and reproducibility
 
-- Myeloblasts remained higher in eVON-derived cells  
-- B and T lymphocytes were higher in eON-derived cells  
-- Monocytes and megakaryocytes were largely equivalent  
+## The Path Forward: Recommendations
 
-Transplantation largely reproduced expected differentiation capacity rather than showing strong niche-specific functional divergence.
+- **Enhance osteoblastic maturation** (longer differentiation, BMP2/Wnt tuning)  
+- **Resolve marker ambiguity** (CD34 + CD45/CD38 for HSPCs; CD31/CD144 for endothelium)  
+- **Investigate contaminants** (lineage tracing and differentiation trajectory checks)  
+- **Extend in vitro maintenance** (aim 4–8 weeks without exogenous cytokines)  
+- **Include lymphoid readouts** (IL-7, Notch ligands, optimized Flt3L)
 
----
+## Conclusion: Incremental Progress in a Complex Landscape
 
-## Points of methodological ambiguity
+The eVON model is a valuable—yet incomplete—step toward engineering the human endosteal niche. Reproducible architecture and vascular–osteoblastic co-culture are strengths, but osteogenic immaturity, marker ambiguity, and reliance on exogenous support highlight how far we remain from true physiological mimicry.
 
-### 1) CD34 as a dual marker
-
-CD34 was used:
-- as an endothelial marker (Figure 1)  
-- as a hematopoietic marker (Figure 2)  
-
-In immunofluorescence analyses, CD34⁺ cells were interpreted as HSPCs without clear co-staining using lineage-specific hematopoietic markers. Distinguishing endothelial vs hematopoietic CD34⁺ cells would strengthen interpretability.
-
-### 2) Relevance of short-term transplantation
-
-HSPCs cultured for one week were harvested and transplanted. Conceptually this tests whether HSPCs retain function after brief in vitro residence. However:
-
-- undifferentiated HSPCs would be expected to maintain engraftment capacity  
-- no strong niche-dependent divergence was observed  
-
-This primarily confirms baseline preservation rather than niche-specific modulation.
-
----
-
-## CXCR4–CXCL12 signaling: a consistent finding
-
-Disruption of CXCR4–CXCL12 signaling reduced HSPC numbers and increased differentiation. This aligns well with established hematopoietic biology and supports physiological relevance along this axis.
-
----
-
-## Growth factor dependency: an open question
-
-Exogenous supplementation with **SCF, TPO, and FLT3L** was required to sustain HSPCs. Yet endothelial and osteoblastic populations are known endogenous sources of these factors.
-
-Single-cell RNA sequencing detected CXCL12 and SCF expression across multiple clusters, raising a key question:
-
-**Why is external SCF still necessary if endogenous production exists?**
-
-Notably:
-- TPO expression was minimal, suggesting incomplete stromal maturation.
-
----
-
-## Single-cell RNA sequencing: unexpected cell types
-
-scRNA-seq revealed populations not initially characterized:
-
-- Macrophage-like cells  
-- Neural-like cells  
-- Epithelial-like cells  
-
-Immunostaining confirmed:
-- **CD68⁺** macrophage-like cells near vasculature  
-- **TH⁺** neural elements associated with vessels  
-
-These findings are intriguing but mechanistically unexplored—especially regarding lineage origin and epithelial transitions.
-
----
-
-## A more fundamental concern: osteogenic maturity
-
-The osteogenic clusters showed predominantly early osteogenic markers, with **RUNX2** as the most advanced marker—yet RUNX2 is itself an early osteogenic regulator.
-
-This contrasts with reported **osteocalcin (OCN)** protein expression, typically associated with later osteoblast differentiation. The discrepancy between RNA (immature) and protein (mature) raises interpretative questions.
-
-Given that mature osteoblasts are central to HSPC maintenance and quiescence, limited osteogenic maturity may partially explain restricted long-term HSPC maintenance in vitro.
-
----
-
-## Variability across iPSC lines
-
-Replication across multiple iPSC lines showed:
-- general reproducibility  
-- expected variability, especially in endothelial networks  
-
-A strength of the study: robustness while acknowledging biological heterogeneity.
-
----
-
-## Future directions worth exploring
-
-1) **Enhance osteogenic maturation**  
-More mature osteogenic spheroids or longer maturation windows may clarify stromal support capacity.
-
-2) **Improve immunophenotypic resolution**  
-Explicit endothelial vs hematopoietic markers in imaging would reduce ambiguity.
-
-3) **Mechanistic lineage tracking**  
-Understanding emergence of neural/macrophage-like cells may reveal unexpected niche biology.
-
----
-
-## Final thoughts
-
-This is a technically elegant and experimentally accessible platform. Its scaffold-assisted, spheroid-based design appears straightforward to reproduce—an important advantage.
-
-It’s best viewed not as a definitive reconstruction, but as a foundational framework.  
-The unanswered questions aren’t weaknesses alone—they’re opportunities.
-
-And in organoid biology, those opportunities often lead to the most interesting discoveries.
+**What do you think?** Does the myeloid bias reflect a real property of the endosteal niche—or missing factors for lymphoid support?
