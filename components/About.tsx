@@ -75,14 +75,11 @@ const About = ({ latestBlog }: Props): JSX.Element => {
             <div className="inline-flex items-center rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300">
               Welcome to my research portfolio
             </div>
-            <h1 className="mt-5 text-4xl font-bold leading-[0.98] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl dark:text-slate-50">
-              Hi, I&apos;m
-              <span className="mt-2 block text-blue-700 dark:text-blue-300">
-                {personalInfo.name}
-              </span>
+            <h1 className="mt-6 text-4xl font-bold leading-[0.98] tracking-tight text-blue-700 sm:text-5xl lg:text-6xl dark:text-blue-300">
+              {personalInfo.name}
             </h1>
 
-            <p className="mt-5 text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl">
+            <p className="mt-6 text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl">
               {personalInfo.about.degree}{" "}
               <a
                 href={personalInfo.about.college.link}
