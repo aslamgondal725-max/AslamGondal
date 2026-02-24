@@ -13,47 +13,63 @@ const chip =
 
 const BlogsIndex: NextPage<Props> = ({ posts }) => {
   return (
-    <section className="max-w-4xl mx-auto px-6 space-y-8">
-      <div className="pt-2">
-        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+    <section className="space-y-6">
+      <div className="page-hero">
+        <div className="relative z-10">
+        <p className="eyebrow">
+          Writing
+        </p>
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl">
           Blog
         </h1>
-        <p className="mt-2 text-gray-600 dark:text-gray-400">
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-400 sm:text-base">
           Long-form notes and commentary on recent research, methods, and ideas.
         </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <span className="soft-chip">{posts.length} posts</span>
+          <span className="soft-chip">Research commentary</span>
+        </div>
+        </div>
       </div>
 
-      <div className="space-y-5">
+      <div className="space-y-4">
         {posts.map((p) => (
           <article
             key={p.slug}
-            className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 shadow-sm"
+            className="surface-card-hover panel-accent p-5 sm:p-6"
           >
-            <div className="flex items-start justify-between gap-4">
-              <div>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div className="min-w-0">
                 <Link
                   href={`/blogs/${p.slug}`}
-                  className="text-xl font-bold text-gray-900 dark:text-gray-100 hover:underline"
+                  className="text-xl font-bold tracking-tight text-slate-900 hover:text-blue-700 dark:text-slate-100 dark:hover:text-blue-300"
                 >
                   {p.title}
                 </Link>
 
-                <div className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                  <span className="soft-chip !px-2.5 !py-0.5 !text-[11px] !font-medium">
                   {new Date(p.date).toLocaleDateString(undefined, {
                     year: "numeric",
                     month: "short",
                     day: "2-digit",
                   })}
+                  </span>
+                  {p.tags && p.tags.length > 0 && (
+                    <span className="text-xs uppercase tracking-wide text-slate-400">
+                      {p.tags.length} tags
+                    </span>
+                  )}
                 </div>
 
                 {p.excerpt && (
-                  <p className="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="mt-3 leading-7 text-slate-700 dark:text-slate-300">
                     {p.excerpt}
                   </p>
                 )}
 
                 {p.paperTitle && p.paperUrl && (
-                  <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+                  <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
                     Paper:{" "}
                     <a
                       href={p.paperUrl}
@@ -77,18 +93,20 @@ const BlogsIndex: NextPage<Props> = ({ posts }) => {
                 )}
               </div>
 
-              <Link
-                href={`/blogs/${p.slug}`}
-                className="text-sm font-semibold underline text-gray-700 dark:text-gray-300 whitespace-nowrap"
-              >
-                Read →
-              </Link>
+              <div className="sm:pt-1">
+                <Link
+                  href={`/blogs/${p.slug}`}
+                  className="inline-flex whitespace-nowrap rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+                >
+                  Read article
+                </Link>
+              </div>
             </div>
           </article>
         ))}
 
         {posts.length === 0 && (
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="surface-card p-5 text-slate-600 dark:text-slate-400">
             No posts yet. Add a markdown file to <code>content/blogs</code>.
           </p>
         )}

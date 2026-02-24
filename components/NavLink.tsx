@@ -5,9 +5,10 @@ import React from "react";
 interface NavLinkProps {
   title: string;
   href: string; // can be "/publications" or "/#about"
+  onNavigate?: () => void;
 }
 
-const NavLink = ({ title, href }: NavLinkProps): JSX.Element => {
+const NavLink = ({ title, href, onNavigate }: NavLinkProps): JSX.Element => {
   const router = useRouter();
 
   const isActive =
@@ -15,15 +16,18 @@ const NavLink = ({ title, href }: NavLinkProps): JSX.Element => {
     (href.startsWith("/#") && router.pathname === "/");
 
   const baseClass =
-    "px-3 py-1.5 rounded-full text-sm font-semibold transition border";
+    "inline-flex items-center justify-center rounded-xl border px-3 py-2 text-sm font-medium transition duration-200";
   const activeClass =
-    "bg-black text-white border-black dark:bg-white dark:text-black dark:border-white";
+    "border-blue-600 bg-blue-600 text-white shadow-[0_8px_18px_rgba(37,99,235,0.25)] dark:border-blue-400 dark:bg-blue-400 dark:text-slate-950";
   const inactiveClass =
-    "border-transparent text-gray-700 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700";
+    "border-transparent text-slate-700 hover:-translate-y-0.5 hover:border-slate-200 hover:bg-white/80 hover:shadow-sm dark:text-slate-200 dark:hover:border-slate-700 dark:hover:bg-slate-900/70";
 
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Only custom-handle hash links
-    if (!href.includes("#")) return;
+    if (!href.includes("#")) {
+      onNavigate?.();
+      return;
+    }
 
     e.preventDefault();
 
@@ -44,6 +48,8 @@ const NavLink = ({ title, href }: NavLinkProps): JSX.Element => {
       const el = document.getElementById(targetId);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
+
+    onNavigate?.();
   };
 
   return (

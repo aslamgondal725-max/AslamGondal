@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { ThemeProvider } from "next-themes";
 import Layout from "../components/Layout";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -37,10 +38,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:url" content="https://magondal.com/" />
       </Head>
 
-      {/* ✅ Restore global layout (Header/Footer/Container) */}
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </>
   );
 }

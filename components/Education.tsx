@@ -2,19 +2,22 @@ import personalInfo from "./data/personalInfo.json";
 
 const chip =
   "inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold " +
-  "border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 " +
-  "hover:bg-gray-50 dark:hover:bg-gray-800 transition";
+  "border-slate-200 bg-slate-50 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 " +
+  "hover:bg-white dark:hover:bg-slate-700 transition";
 
 const Education = (): JSX.Element => {
   const education = (personalInfo as any)?.education ?? [];
 
   return (
-    <section id="education" className="mb-16">
-      <h2 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-        Education
-      </h2>
+    <section id="education">
+      <div className="flex items-end justify-between gap-4">
+        <h2 className="section-heading">Education</h2>
+        <span className="hidden rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:inline-flex dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
+          Academic track
+        </span>
+      </div>
 
-      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+      <p className="section-subtext">
         Transcripts, certificates, and recommendation letters are available upon request.
       </p>
 
@@ -22,21 +25,22 @@ const Education = (): JSX.Element => {
         {education.map((edu: any, idx: number) => (
           <div
             key={idx}
-            className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 shadow-sm"
+            className="group rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/70"
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <a
                 href={edu.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:underline"
+                className="relative pl-4 text-base font-semibold leading-7 text-slate-900 hover:underline dark:text-slate-100 sm:text-lg"
               >
+                <span className="absolute left-0 top-1.5 h-5 w-1 rounded-full bg-gradient-to-b from-blue-500 to-sky-400" aria-hidden="true" />
                 {edu.name}
               </a>
 
               {/* ✅ Request-access chips */}
               {edu.documents && (
-                <div className="flex gap-2 flex-wrap">
+                <div className="flex flex-wrap gap-2 sm:justify-end">
                   {edu.documents.map((doc: any, i: number) => (
                     <a
                       key={i}

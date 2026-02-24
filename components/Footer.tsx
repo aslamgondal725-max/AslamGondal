@@ -35,21 +35,28 @@ const Footer = (): JSX.Element => {
   }
 
   return (
-    <footer className="mt-16 pb-10">
-      <div className="max-w-4xl mx-auto px-6 flex items-center justify-between">
-        <p className="text-gray-500 dark:text-gray-400">© 2026. MuhammadAslam</p>
+    <footer className="mt-14 px-4 pb-8 pt-4 sm:px-6 lg:px-8">
+      <div className="surface-card panel-accent flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-sm font-semibold tracking-wide text-slate-800 dark:text-slate-100">
+            © 2026 Muhammad Aslam
+          </p>
+          <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">
+            Research portfolio, publications, projects, and notes.
+          </p>
+        </div>
 
-        <div className="flex items-center gap-6 pr-10">
+        <div className="flex items-center gap-4">
           {links.map((item) => (
             <a
               key={item.name}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="opacity-70 hover:opacity-100 transition"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/70 bg-white opacity-80 shadow-sm transition hover:-translate-y-0.5 hover:opacity-100 hover:shadow-md dark:border-slate-700 dark:bg-slate-900"
               aria-label={item.name}
             >
-              <Image src={item.icon} alt={item.alt} width={26} height={26} />
+              <Image src={item.icon} alt={item.alt} width={20} height={20} />
             </a>
           ))}
         </div>

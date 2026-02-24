@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useTheme } from "next-themes";
 
@@ -26,21 +26,24 @@ const Layout = ({ children }: Props): JSX.Element => {
   );
 
   return (
-    <>
-      <Header
-        mounted={mounted}
-        resolvedTheme={resolvedTheme}
-        setTheme={setTheme}
-        scrolled={scrolled}
-      />
+    <div className="min-h-screen py-3 sm:py-4">
+      <div className="page-shell">
+        <div className="app-canvas overflow-hidden">
+          <Header
+            mounted={mounted}
+            resolvedTheme={resolvedTheme}
+            setTheme={setTheme}
+            scrolled={scrolled}
+          />
 
-      {/* ✅ Center the whole site content */}
-      <main className="w-full">
-        <div className="max-w-4xl mx-auto px-6">{children}</div>
-      </main>
+          <main className="w-full px-4 pb-8 pt-3 sm:px-6 sm:pb-10 sm:pt-5 lg:px-8">
+            {children}
+          </main>
 
-      <Footer />
-    </>
+          <Footer />
+        </div>
+      </div>
+    </div>
   );
 };
 
