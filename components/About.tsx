@@ -38,12 +38,12 @@ const About = ({ latestBlog }: Props): JSX.Element => {
       <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#f2f5fd] px-5 py-6 shadow-[0_20px_50px_rgba(30,41,59,0.08)] sm:px-8 sm:py-8 dark:border-slate-800 dark:bg-slate-900">
         <div className="grid grid-cols-1 gap-8 xl:grid-cols-12 xl:items-center">
           <div className="xl:col-span-6">
-            <div className="inline-flex items-center rounded-full border border-blue-200/70 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/20 dark:bg-blue-500/10 dark:text-blue-300">
+            <div className="inline-flex items-center rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300">
               Welcome to my research portfolio
             </div>
-            <h1 className="mt-5 text-4xl font-bold leading-[0.98] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-slate-100">
+            <h1 className="mt-5 text-4xl font-bold leading-[0.98] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl dark:text-slate-50">
               Hi, I&apos;m
-              <span className="mt-2 block text-blue-600 dark:text-blue-300">
+              <span className="mt-2 block text-blue-700 dark:text-blue-300">
                 {personalInfo.name}
               </span>
             </h1>
@@ -54,7 +54,7 @@ const About = ({ latestBlog }: Props): JSX.Element => {
                 href={personalInfo.about.college.link}
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold text-blue-700 underline underline-offset-4 dark:text-blue-300"
+                className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 dark:text-blue-300 dark:decoration-blue-500/40"
               >
                 {personalInfo.about.college.name}
               </a>
@@ -67,13 +67,13 @@ const About = ({ latestBlog }: Props): JSX.Element => {
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href={`mailto:${personalInfo.about.email}`}
-                className="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+                className="inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(37,99,235,0.22)] transition hover:brightness-105"
               >
                 Contact Me
               </a>
               <a
                 href="/projects"
-                className="inline-flex items-center rounded-xl border border-blue-200 bg-white px-5 py-3 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50 dark:border-blue-400/30 dark:bg-slate-900 dark:text-blue-300"
+                className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
               >
                 View My Work
               </a>
@@ -89,7 +89,7 @@ const About = ({ latestBlog }: Props): JSX.Element => {
 
           <div className="relative xl:col-span-6">
             <div className="rounded-[1.75rem] border border-white/80 bg-white p-3 shadow-[0_20px_45px_rgba(15,23,42,0.10)] dark:border-slate-700 dark:bg-slate-800">
-              <div className="relative overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 dark:border-slate-700 dark:bg-slate-900">
+              <div className="relative overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-slate-100 via-white to-slate-100 dark:border-slate-700 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
                 <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-4 py-3">
                   <div className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold tracking-wide text-slate-700 shadow-sm backdrop-blur dark:bg-slate-800/90 dark:text-slate-200">
                     Research Portfolio
@@ -99,36 +99,39 @@ const About = ({ latestBlog }: Props): JSX.Element => {
                   </div>
                 </div>
 
-                <Image
-                  src="/Profile_photo.png"
-                  alt=""
-                  width={900}
-                  height={1400}
-                  priority
-                  aria-hidden="true"
-                  className="h-[380px] w-full scale-110 object-cover object-center opacity-55 blur-[10px] saturate-75 sm:h-[500px] xl:h-[560px]"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-600/18 via-slate-900/8 to-cyan-400/12 mix-blend-multiply" />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/25 via-transparent to-white/10 dark:from-slate-950/35" />
-
-                <div className="absolute inset-x-0 bottom-24 top-14 flex items-center justify-center px-4 sm:px-6">
-                  <div className="relative h-full w-full max-w-[360px] overflow-hidden rounded-[1.25rem] border border-white/70 bg-white/10 shadow-[0_16px_35px_rgba(15,23,42,0.18)] backdrop-blur-sm dark:border-slate-700/70">
-                    <Image
-                      src="/Profile_photo.png"
-                      alt={personalInfo.name}
-                      width={900}
-                      height={1400}
-                      priority
-                      className="h-full w-full object-cover object-[center_24%]"
-                    />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-white/5" />
-                    <div className="pointer-events-none absolute inset-0 ring-1 ring-white/30 dark:ring-slate-700/60" />
+                <div className="relative px-4 pb-24 pt-14 sm:px-6">
+                  <div className="mx-auto w-full max-w-[320px] sm:max-w-[340px]">
+                    <div className="relative overflow-hidden rounded-[1.15rem] border border-white/80 bg-white shadow-[0_18px_35px_rgba(15,23,42,0.14)] dark:border-slate-700 dark:bg-slate-900">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/8 via-transparent to-slate-900/10 mix-blend-multiply" />
+                      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent dark:from-white/5" />
+                      <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-blue-500/8 to-transparent" />
+                      <div className="relative h-[300px] sm:h-[360px]">
+                        <Image
+                          src="/Profile_photo.png"
+                          alt={personalInfo.name}
+                          width={900}
+                          height={1400}
+                          priority
+                          className="h-full w-full object-cover object-[center_22%]"
+                        />
+                      </div>
+                    </div>
+                    <div className="mt-3 flex items-center justify-center gap-2">
+                      {socialLinks.map((item) => (
+                        <a
+                          key={`hero-${item.name}`}
+                          href={item.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+                          aria-label={item.name}
+                        >
+                          <Image src={item.icon} alt={item.name} width={16} height={16} />
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-14 bg-gradient-to-r from-white/55 to-transparent dark:from-slate-900/50" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-white/55 to-transparent dark:from-slate-900/50" />
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-slate-900/10 to-transparent" />
 
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/65 via-slate-900/20 to-transparent p-4">
                   <div className="grid grid-cols-3 gap-2">
@@ -149,22 +152,6 @@ const About = ({ latestBlog }: Props): JSX.Element => {
               </div>
             </div>
 
-            {socialLinks.length > 0 && (
-              <div className="mt-4 flex items-center justify-end gap-2">
-                {socialLinks.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
-                    aria-label={item.name}
-                  >
-                    <Image src={item.icon} alt={item.name} width={18} height={18} />
-                  </a>
-                ))}
-              </div>
-            )}
           </div>
         </div>
 
