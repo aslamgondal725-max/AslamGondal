@@ -24,13 +24,47 @@ const About = ({ latestBlog }: Props): JSX.Element => {
     },
   ].filter((item) => item.href);
 
-  const brandStrip = [
-    "Anhalt University",
-    "JMU Würzburg",
-    "LUMS",
-    "QAU",
-    "3D Tissue Models",
-    "Biofabrication",
+  const affiliations = [
+    {
+      name: "FMZ Würzburg",
+      href: "https://www.fmz.uni-wuerzburg.de/",
+      logo: "/Logos/FMZ.jpeg",
+    },
+    {
+      name: "University of Würzburg",
+      href: "https://www.uni-wuerzburg.de/",
+      logo: "/Logos/JMU.jpeg",
+    },
+    {
+      name: "Biofabrication Würzburg",
+      href: "https://www.fmz.uni-wuerzburg.de/biofabrication/",
+      logo: "/Logos/Biofabrication_Würzburg.png",
+    },
+    {
+      name: "IFB Würzburg",
+      href: "https://www.chemie.uni-wuerzburg.de/ifb/",
+      logo: "/Logos/IFB.jpeg",
+    },
+    {
+      name: "Anhalt University",
+      href: "https://www.hs-anhalt.de/startseite.html",
+      logo: "/Logos/HSA.jpeg",
+    },
+    {
+      name: "LUMS",
+      href: "https://www.lums.edu.pk/",
+      logo: "/Logos/LUMS.png",
+    },
+    {
+      name: "QAU",
+      href: "https://qau.edu.pk/",
+      logo: "/Logos/QAU.jpeg",
+    },
+    {
+      name: "University of Gujrat",
+      href: "https://www.uog.edu.pk/",
+      logo: "/Logos/UOG.jpeg",
+    },
   ];
 
   return (
@@ -155,21 +189,6 @@ const About = ({ latestBlog }: Props): JSX.Element => {
           </div>
         </div>
 
-        <div className="mt-10 rounded-2xl border border-slate-200/70 bg-white/50 p-5 dark:border-slate-700 dark:bg-slate-800/40">
-          <p className="text-center text-sm font-semibold tracking-wide text-slate-500 dark:text-slate-400">
-            Research & academic affiliations
-          </p>
-          <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
-            {brandStrip.map((brand) => (
-              <span
-                key={brand}
-                className="flex min-h-[52px] items-center justify-center rounded-xl border border-slate-200/80 bg-white px-3 py-2 text-center text-sm font-semibold text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
-              >
-                {brand}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-12">
@@ -228,6 +247,42 @@ const About = ({ latestBlog }: Props): JSX.Element => {
           <RecentReadings />
         </aside>
       </div>
+
+      <section className="surface-card panel-accent p-6 sm:p-7">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="eyebrow">Affiliations</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+              Academic & Research Institutions
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+              Education, research training, and institutional collaborations.
+            </p>
+          </div>
+          <span className="soft-chip">{affiliations.length} institutions</span>
+        </div>
+
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
+          {affiliations.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex min-h-[88px] items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+              aria-label={item.name}
+              title={item.name}
+            >
+              <img
+                src={item.logo}
+                alt={item.name}
+                className="max-h-10 w-auto max-w-full object-contain opacity-80 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0"
+                loading="lazy"
+              />
+            </a>
+          ))}
+        </div>
+      </section>
     </section>
   );
 };
