@@ -9,9 +9,9 @@ type Reading = {
   url: string;
 };
 
-const ROTATE_MS = 6500;
+const ROTATE_MS = 11000;
 const ANIM_MS = 450;
-const SHOW_COUNT = 3;
+const SHOW_COUNT = 6;
 
 function shuffleArray<T>(arr: T[]): T[] {
   const copy = [...arr];
