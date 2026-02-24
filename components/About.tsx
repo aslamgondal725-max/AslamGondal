@@ -100,7 +100,7 @@ const About = ({ latestBlog }: Props): JSX.Element => {
                 </div>
 
                 <Image
-                  src="/Profile_photo.JPG"
+                  src="/Profile_photo.png"
                   alt=""
                   width={900}
                   height={1400}
@@ -114,7 +114,7 @@ const About = ({ latestBlog }: Props): JSX.Element => {
                 <div className="absolute inset-x-0 bottom-24 top-14 flex items-center justify-center px-4 sm:px-6">
                   <div className="relative h-full w-full max-w-[360px] overflow-hidden rounded-[1.25rem] border border-white/70 bg-white/10 shadow-[0_16px_35px_rgba(15,23,42,0.18)] backdrop-blur-sm dark:border-slate-700/70">
                     <Image
-                      src="/Profile_photo.JPG"
+                      src="/Profile_photo.png"
                       alt={personalInfo.name}
                       width={900}
                       height={1400}
