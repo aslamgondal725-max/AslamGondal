@@ -26,9 +26,9 @@ const Layout = ({ children }: Props): JSX.Element => {
   );
 
   return (
-    <div className="min-h-screen py-3 sm:py-4">
+    <div className="min-h-screen">
       <div className="page-shell">
-        <div className="app-canvas overflow-hidden">
+        <div className="app-canvas overflow-hidden rounded-none border-x-0 sm:rounded-3xl sm:border-x">
           <Header
             mounted={mounted}
             resolvedTheme={resolvedTheme}
