@@ -101,12 +101,30 @@ const About = ({ latestBlog }: Props): JSX.Element => {
 
                 <Image
                   src="/Profile_photo.JPG"
-                  alt={personalInfo.name}
+                  alt=""
                   width={900}
                   height={1400}
                   priority
-                  className="h-[380px] w-full object-cover object-[center_18%] sm:h-[500px] xl:h-[560px]"
+                  aria-hidden="true"
+                  className="h-[380px] w-full scale-110 object-cover object-center opacity-55 blur-[10px] saturate-75 sm:h-[500px] xl:h-[560px]"
                 />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-600/18 via-slate-900/8 to-cyan-400/12 mix-blend-multiply" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/25 via-transparent to-white/10 dark:from-slate-950/35" />
+
+                <div className="absolute inset-x-0 bottom-24 top-14 flex items-center justify-center px-4 sm:px-6">
+                  <div className="relative h-full w-full max-w-[360px] overflow-hidden rounded-[1.25rem] border border-white/70 bg-white/10 shadow-[0_16px_35px_rgba(15,23,42,0.18)] backdrop-blur-sm dark:border-slate-700/70">
+                    <Image
+                      src="/Profile_photo.JPG"
+                      alt={personalInfo.name}
+                      width={900}
+                      height={1400}
+                      priority
+                      className="h-full w-full object-cover object-[center_24%]"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-white/5" />
+                    <div className="pointer-events-none absolute inset-0 ring-1 ring-white/30 dark:ring-slate-700/60" />
+                  </div>
+                </div>
 
                 <div className="pointer-events-none absolute inset-y-0 left-0 w-14 bg-gradient-to-r from-white/55 to-transparent dark:from-slate-900/50" />
                 <div className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-white/55 to-transparent dark:from-slate-900/50" />
