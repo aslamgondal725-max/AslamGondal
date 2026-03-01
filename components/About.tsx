@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import personalInfo from "./data/personalInfo.json";
 import Education from "./Education";
@@ -11,19 +12,6 @@ type Props = {
 };
 
 const About = ({ latestBlog }: Props): JSX.Element => {
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      href: personalInfo.socialMedia.LinkedIn,
-      icon: "/images/icons8-linkedin.svg",
-    },
-    {
-      name: "Twitter",
-      href: personalInfo.socialMedia.Twitter,
-      icon: "/images/icons8-twitter.svg",
-    },
-  ].filter((item) => item.href);
-
   const affiliations = [
     {
       name: "FMZ Würzburg",
@@ -67,125 +55,99 @@ const About = ({ latestBlog }: Props): JSX.Element => {
     },
   ];
 
+  const wallpapers = [
+    "/Wallpaper/national-cancer-institute-NbZQYileaOI-unsplash.jpg",
+    "/Wallpaper/bioscience-image-library-by-fayette-reynolds-QXug_1QuM90-unsplash.jpg",
+    "/Wallpaper/flyd-GRzLN_-o5dQ-unsplash.jpg",
+    "/Wallpaper/flyd-KJu5XMU7qZk-unsplash.jpg",
+    "/Wallpaper/susan-wilkinson-huyWOrBBSuA-unsplash.jpg",
+    "/Wallpaper/national-cancer-institute-mbL91Lg56zc-unsplash.jpg",
+  ];
+  const [activeWallpaper, setActiveWallpaper] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveWallpaper((prev) => (prev + 1) % wallpapers.length);
+    }, 6500);
+
+    return () => window.clearInterval(interval);
+  }, [wallpapers.length]);
+
   return (
     <section id="about" className="mb-20 space-y-10">
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#f2f5fd] px-5 py-6 shadow-[0_20px_50px_rgba(30,41,59,0.08)] sm:px-8 sm:py-8 dark:border-slate-800 dark:bg-slate-900">
-        <div className="grid grid-cols-1 gap-8 xl:grid-cols-12 xl:items-center">
-          <div className="xl:col-span-6">
-            <div className="inline-flex items-center rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-600 dark:border-slate-700 dark:bg-slate-800/70 dark:text-slate-300">
-              Welcome to my research portfolio
-            </div>
-            <h1 className="mt-6 text-4xl font-bold leading-[0.98] tracking-tight text-blue-700 sm:text-5xl lg:text-6xl dark:text-blue-300">
-              {personalInfo.name}
-            </h1>
-
-            <p className="mt-6 text-lg leading-8 text-slate-700 dark:text-slate-300 sm:text-xl">
-              {personalInfo.about.degree}{" "}
-              <a
-                href={personalInfo.about.college.link}
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 dark:text-blue-300 dark:decoration-blue-500/40"
-              >
-                {personalInfo.about.college.name}
-              </a>
+      <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-[#f2f5fd] p-6 shadow-[0_20px_50px_rgba(30,41,59,0.08)] sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+        <div className="grid grid-cols-1 gap-7 lg:grid-cols-12 lg:gap-8">
+          <aside className="lg:col-span-4 surface-card p-5 sm:p-6">
+            <p className="eyebrow">Bio</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+              Research Background
+            </h2>
+            <p className="mt-5 text-[15px] leading-8 text-slate-700 dark:text-slate-300">
+              I hold an M.Sc. in Molecular Biotechnology, where my master&apos;s thesis focused on the biofabrication of vascularized mini-bone constructs through the integration of stem cell-derived spheroids and blood vessel organoids. My research centers on the development of vascularized tissue models, organoid integration strategies, and advanced 3D human in vitro systems for translational and disease-oriented research.
             </p>
-
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-400">
-              {personalInfo.about.bio} My work focuses on vascularized tissue models, organoid integration, and advanced 3D human in vitro systems for translational research.
+            <p className="mt-4 text-[15px] leading-8 text-slate-700 dark:text-slate-300">
+              Prior to this, I earned a Bachelor&apos;s degree in Animal Sciences, which sparked my interest in molecular biology and motivated me to pursue further specialization in this field. I subsequently completed a degree in Molecular Biology, during which I conducted a research project aimed at generating antibodies against two Drosophila genes—Suppressor of sable and Bällchen. This work involved cloning and expressing antigenic regions in E. coli, followed by protein expression and downstream applications.
             </p>
+            <p className="mt-4 text-[15px] leading-8 text-slate-700 dark:text-slate-300">
+              Through this interdisciplinary trajectory, I have developed expertise spanning molecular biology, protein expression, and advanced biofabrication technologies, enabling me to bridge fundamental biological research with innovative tissue engineering approaches.
+            </p>
+          </aside>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a
-                href="/projects"
-                className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
-              >
-                View My Work
-              </a>
-              <a
-                href={`mailto:${personalInfo.about.email}`}
-                className="text-sm font-medium text-slate-600 underline decoration-slate-300 underline-offset-4 hover:text-blue-700 dark:text-slate-300 dark:decoration-slate-600 dark:hover:text-blue-300"
-              >
-                {personalInfo.about.email}
-              </a>
-            </div>
-
-            <div className="mt-8 flex flex-wrap items-center gap-2">
-              <span className="soft-chip">Biofabrication</span>
-              <span className="soft-chip">Organoids</span>
-              <span className="soft-chip">3D In Vitro Models</span>
-              <span className="soft-chip">Translational Research</span>
-            </div>
-          </div>
-
-          <div className="relative xl:col-span-6">
-            <div className="rounded-[1.75rem] border border-white/80 bg-white p-3 shadow-[0_20px_45px_rgba(15,23,42,0.10)] dark:border-slate-700 dark:bg-slate-800">
-              <div className="relative overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-slate-100 via-white to-slate-100 dark:border-slate-700 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
-                <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-4 py-3">
-                  <div className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold tracking-wide text-slate-700 shadow-sm backdrop-blur dark:bg-slate-800/90 dark:text-slate-200">
-                    Research Portfolio
-                  </div>
-                  <div className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold tracking-wide text-blue-700 shadow-sm backdrop-blur dark:bg-slate-800/90 dark:text-blue-300">
-                    Available for collaboration
-                  </div>
-                </div>
-
-                <div className="relative px-4 pb-24 pt-14 sm:px-6">
-                  <div className="mx-auto w-full max-w-[320px] sm:max-w-[340px]">
-                    <div className="relative overflow-hidden rounded-[1.15rem] border border-white/80 bg-white shadow-[0_18px_35px_rgba(15,23,42,0.14)] dark:border-slate-700 dark:bg-slate-900">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/8 via-transparent to-slate-900/10 mix-blend-multiply" />
-                      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/20 to-transparent dark:from-white/5" />
-                      <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-blue-500/8 to-transparent" />
-                      <div className="relative h-[300px] sm:h-[360px]">
-                        <Image
-                          src="/Profile_photo.png"
-                          alt={personalInfo.name}
-                          width={900}
-                          height={1400}
-                          priority
-                          className="h-full w-full object-cover object-[center_22%]"
-                        />
-                      </div>
-                    </div>
-                    <div className="mt-3 flex items-center justify-center gap-2">
-                      {socialLinks.map((item) => (
-                        <a
-                          key={`hero-${item.name}`}
-                          href={item.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
-                          aria-label={item.name}
-                        >
-                          <Image src={item.icon} alt={item.name} width={16} height={16} />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/65 via-slate-900/20 to-transparent p-4">
-                  <div className="grid grid-cols-3 gap-2">
-                    <div className="rounded-xl bg-white/95 px-3 py-2 shadow-sm dark:bg-slate-900/90">
-                      <div className="text-xl font-bold text-blue-700 dark:text-blue-300">3+</div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400">Degrees</div>
-                    </div>
-                    <div className="rounded-xl bg-white/95 px-3 py-2 shadow-sm dark:bg-slate-900/90">
-                      <div className="text-xl font-bold text-blue-700 dark:text-blue-300">5+</div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400">Projects</div>
-                    </div>
-                    <div className="rounded-xl bg-white/95 px-3 py-2 shadow-sm dark:bg-slate-900/90">
-                      <div className="text-xl font-bold text-blue-700 dark:text-blue-300">3+</div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400">Years</div>
-                    </div>
-                  </div>
+          <div className="lg:col-span-8">
+            <article className="surface-card overflow-hidden">
+              <div className="relative h-56 sm:h-72 lg:h-80">
+                {wallpapers.map((src, idx) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt=""
+                    aria-hidden="true"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 66vw"
+                    className={[
+                      "absolute inset-0 object-cover transition-opacity duration-700",
+                      idx === activeWallpaper ? "opacity-100" : "opacity-0",
+                    ].join(" ")}
+                    priority={idx === 0}
+                  />
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/35 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2">
+                  {wallpapers.map((_, idx) => (
+                    <span
+                      key={`dot-${idx}`}
+                      className={[
+                        "h-1.5 rounded-full transition-all",
+                        idx === activeWallpaper ? "w-6 bg-white" : "w-2 bg-white/60",
+                      ].join(" ")}
+                    />
+                  ))}
                 </div>
               </div>
-            </div>
 
+              <div className="relative bg-white px-5 pb-8 pt-16 dark:bg-slate-900 sm:px-7">
+                <div className="absolute -top-12 left-5 h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-lg dark:border-slate-900 sm:left-7">
+                  <Image
+                    src="/Profile_photo.jpg"
+                    alt={personalInfo.name}
+                    width={300}
+                    height={300}
+                    className="h-full w-full object-cover object-[center_22%]"
+                  />
+                </div>
+                <h3 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+                  Muhammad Aslam, M.Sc.
+                </h3>
+                <p className="mt-3 max-w-3xl text-xl leading-8 text-slate-700 dark:text-slate-300">
+                  Research Fellow at the Department of the Functional Materials in Medicine and Dentistry (FMZ), Julius-Maximilians-Universität Würzburg
+                </p>
+                <p className="mt-2 text-2xl font-semibold text-slate-500 dark:text-slate-400">
+                  Germany
+                </p>
+              </div>
+            </article>
           </div>
         </div>
-
       </div>
 
       <div className="grid gap-6 lg:grid-cols-12">
