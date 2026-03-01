@@ -79,11 +79,11 @@ const About = ({ latestBlog }: Props): JSX.Element => {
         <div className="grid grid-cols-1 gap-7 lg:grid-cols-12 lg:gap-8">
           <aside className="lg:col-span-4 surface-card p-5 sm:p-6">
             <p className="eyebrow">Bio</p>
-            <p className="mt-3 text-[15px] leading-8 text-slate-700 dark:text-slate-300">
-              I hold an M.Sc. in Molecular Biotechnology, where my master&apos;s thesis focused on the biofabrication of vascularized mini-bone constructs through the integration of stem cell-derived spheroids and blood vessel organoids. My research centers on vascularized tissue models, organoid integration strategies, and advanced 3D human in vitro systems for translational and disease-oriented research.
+            <p className="mt-2 text-[15px] leading-7 text-slate-700 dark:text-slate-300">
+              I hold an M.Sc. in Molecular Biotechnology, where my master&apos;s thesis focused on biofabricating vascularized mini-bone constructs through integrating stem cell-derived spheroids with blood vessel organoids. My current work centers on vascularized tissue models, organoid integration, and advanced 3D human in vitro systems for translational and disease-oriented research.
             </p>
-            <p className="mt-4 text-[15px] leading-8 text-slate-700 dark:text-slate-300">
-              Earlier, I completed degrees in Animal Sciences and Molecular Biology, where I conducted antibody-generation research targeting the Drosophila genes Suppressor of sable and Bällchen, including cloning antigenic regions in E. coli, protein expression, and downstream validation. This interdisciplinary path has built my expertise across molecular biology, protein expression, and biofabrication technologies.
+            <p className="mt-3 text-[15px] leading-7 text-slate-700 dark:text-slate-300">
+              Earlier, I completed degrees in Animal Sciences and Molecular Biology, including antibody-generation work targeting Suppressor of sable and Bällchen in Drosophila (cloning in E. coli, protein expression, and downstream validation). This interdisciplinary path built my expertise across molecular biology, protein expression, and advanced biofabrication.
             </p>
           </aside>
 
@@ -122,7 +122,7 @@ const About = ({ latestBlog }: Props): JSX.Element => {
               <div className="relative bg-white px-5 pb-8 pt-16 dark:bg-slate-900 sm:px-7">
                 <div className="absolute -top-12 left-5 h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-lg dark:border-slate-900 sm:left-7">
                   <Image
-                    src="/Profile_photo.JPG"
+                    src="/Profile_photo.jpg"
                     alt={personalInfo.name}
                     width={300}
                     height={300}
