@@ -1,9 +1,7 @@
 [
   {
-    "title": "Biofabrication of Vascularized Mini-bones",
-    "subtitle": "Integration of blood vessel organoids with mineralized osteogenic spheroids",
-    "description": "Developed vascularized mini-bone constructs by integrating iPSC-derived blood vessel organoids with mineralized osteogenic spheroids to model bone–vascular interactions. Performed culture optimization and multi-modal characterization (histology, imaging, molecular readouts) to assess tissue maturation and mineralization. The shown image is of blood vessel organoid used in the project. Surface rendering of CD31 staining is performed using Imaris",
-    "image": "/images/projects/VascularizedOrganoids.png",
+    "title": "Biofabrication of Blood Vessel Organoids",
+    "description": "Developed blood vessel organoids using hiPSCs. The organoids were characterized using histology, immunostaining, bulk RNA seq, and scanning electron microscopy. RNA seq data was analyzed using R studio with packages including Seurat. Images were analyzed using ImageJ and Imaris.",
     "tags": ["Biofabrication", "Organoids", "Spheroids", "Bone"],
     "featured": true,
     "links": []
@@ -11,8 +9,7 @@
   {
     "title": "Mineralized ADSC-Derived Spheroids",
     "subtitle": "Osteogenic differentiation and characterization workflow",
-    "description": "Generated and characterized mineralized spheroids from adipose-derived stem cells (ASCs). Optimized osteogenic culture conditions and performed viability assays (Calcein AM/PI), histology, and fluorescence/confocal microscopy-based analysis. The attached image is of Mineralized spheroid to show cellular distribution with ASC spheroid. Phalloidin staining",
-    "image": "/images/projects/adsc-spheroids.png",
+    "description": "Generated and characterized mineralized spheroids from adipose-derived stem cells (ASCs). Optimized osteogenic culture conditions and performed viability assays (Calcein AM/PI), histology, and fluorescence/confocal microscopy-based analysis.",
     "tags": ["ADSC", "Osteogenesis", "3D culture", "Microscopy"],
     "featured": false,
     "links": []
