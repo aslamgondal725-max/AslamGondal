@@ -2,6 +2,7 @@ import { type FormEvent, useEffect, useRef, useState } from "react";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import { Link as LinkIcon, Share2 } from "react-feather";
 import { getAllPostsMeta, getPostBySlug, type BlogPost } from "../../lib/blog";
 
 type Props = {
@@ -43,6 +44,7 @@ const BlogPostPage: NextPage<Props> = ({ post }) => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const [pendingFiles, setPendingFiles] = useState<File[]>([]);
+  const [linkCopied, setLinkCopied] = useState(false);
   const imageInputRef = useRef<HTMLInputElement>(null);
   const videoInputRef = useRef<HTMLInputElement>(null);
   const docInputRef = useRef<HTMLInputElement>(null);
@@ -118,6 +120,36 @@ const BlogPostPage: NextPage<Props> = ({ post }) => {
     }));
     setComment("");
     setPendingFiles([]);
+  };
+
+  const getCurrentUrl = () =>
+    typeof window !== "undefined" ? window.location.href : "";
+
+  const handleCopyLink = async () => {
+    const url = getCurrentUrl();
+    if (!url) return;
+    await navigator.clipboard.writeText(url);
+    setLinkCopied(true);
+    window.setTimeout(() => setLinkCopied(false), 1800);
+  };
+
+  const handleNativeShare = async () => {
+    const url = getCurrentUrl();
+    if (!url) return;
+    if (typeof navigator !== "undefined" && "share" in navigator) {
+      try {
+        await navigator.share({
+          title: frontMatter.title,
+          text: frontMatter.excerpt ?? frontMatter.title,
+          url,
+        });
+        return;
+      } catch {
+        // user canceled share
+      }
+    }
+
+    await handleCopyLink();
   };
 
   return (
@@ -204,6 +236,30 @@ const BlogPostPage: NextPage<Props> = ({ post }) => {
                   </a>
                 </div>
               )}
+
+              <div className="mt-5 rounded-xl border border-slate-200/80 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/70">
+                <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Share
+                </div>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={handleNativeShare}
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+                  >
+                    <Share2 size={14} />
+                    Share
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleCopyLink}
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+                  >
+                    <LinkIcon size={14} />
+                    {linkCopied ? "Copied" : "Copy link"}
+                  </button>
+                </div>
+              </div>
             </div>
           </aside>
 
