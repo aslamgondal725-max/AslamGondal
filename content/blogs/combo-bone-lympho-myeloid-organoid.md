@@ -12,7 +12,6 @@ tags:
   - MultipleMyeloma
   - SingleCellRNAseq
   - DiseaseModeling
-  - Biofabrication
 ---
 
 The bone marrow microenvironment is an extraordinarily complex niche composed of endothelial cells, mesenchymal stromal populations, adipocytes, and osteogenic lineages, all of which collectively regulate hematopoiesis. Capturing this diversity in vitro has been a long-standing challenge. Existing models often fall short—typically lacking simultaneous lymphopoiesis and myelopoiesis, omitting adipogenic or osteogenic compartments, and suffering from limited scalability. In this context, the recently published ComBO system represents an ambitious attempt to reconstruct a more complete human bone marrow organoid.
