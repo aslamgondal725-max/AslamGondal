@@ -42,6 +42,10 @@
       "link": "https://www.hs-anhalt.de/",
       "documents": [
         {
+          "label": "certificate",
+          "requestLink": "https://drive.google.com/file/d/1Mn4pjSh-87GmU6y3XH2HxtKag1WpE3xM/view?usp=drivesdk"
+        },
+        {
           "label": "transcript",
           "requestLink": "https://drive.google.com/file/d/109K7qgBp9FYzjWq1vPLn39fF9Zu61Y5H/view?usp=sharing"
         }
