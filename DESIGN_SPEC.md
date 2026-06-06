@@ -33,7 +33,7 @@ Sticky top bar, `bg-paper border-b border-line`, height ~74px. Left: wordmark "M
 `border-t border-line`, `bg-paper`. Left: wordmark + one-line description in `text-ink-mut`. Right: text links (CV, Twitter, LinkedIn, Email) `text-ink-soft hover:text-ink`. Bottom hairline row: copyright + location, `text-ink-mut text-xs`. No social-icon chips with borders/shadows; plain text links are fine, or minimal.
 
 ## Reference content (already in /components/data/*.json — use the JSON, this is just orientation)
-- Name: Muhammad Aslam, M.Sc. Role: Research Fellow, FMZ, Julius-Maximilians-Universität Würzburg, Germany.
+- Name: Muhammad Aslam, M.Sc. Role: Doctoral Candidate, FMZ, Julius-Maximilians-Universität Würzburg, Germany.
 - Sections on home: About/bio, Focus areas, Education (4 degrees), Teaching (TA 2019 to 2022), Affiliations (8 logos), Recent readings (rotating), Latest blog teaser, Contact.
 - Email: Aslamgondal725@gmail.com. CV: /cv.pdf. Twitter: x.com/aslamgondal5. LinkedIn: linkedin.com/in/muhammad-aslam-61884110b.
 
