@@ -111,9 +111,12 @@ const About = ({ latestBlog }: Props): JSX.Element => {
         <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
           <div>
             <h1 className="font-serif text-4xl font-medium leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Engineering <span className="italic">living</span> human tissue,
-              outside the body.
+              {personalInfo.name}
             </h1>
+
+            <p className="mt-4 font-serif text-2xl italic leading-snug text-ink-soft sm:text-3xl">
+              Biofabrication Researcher
+            </p>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-soft">
               {personalInfo.about.bio}
@@ -174,7 +177,7 @@ const About = ({ latestBlog }: Props): JSX.Element => {
       {/* 01 / About */}
       <Section index="01" label="About">
         <h2 className="max-w-2xl font-serif text-2xl font-medium leading-tight tracking-tight text-ink sm:text-3xl">
-          A molecular biotechnologist building 3D human tissue models.
+          Bio
         </h2>
         <div className="mt-6 max-w-2xl space-y-4 text-ink-soft">
           <p>
@@ -302,13 +305,11 @@ const About = ({ latestBlog }: Props): JSX.Element => {
             </div>
             <div>
               <h2 className="max-w-2xl font-serif text-3xl font-medium leading-tight tracking-tight text-paper sm:text-4xl">
-                Let&apos;s talk about tissue models, organoids, and
-                collaboration.
+                Get in touch
               </h2>
               <p className="mt-4 max-w-xl text-paper/70">
-                Open to research collaborations, positions, and conversations on
-                vascularized tissue models, bone marrow systems, and 3D human in
-                vitro platforms.
+                Open to research collaborations, positions, and conversations in
+                biofabrication and 3D human in vitro systems.
               </p>
 
               <div className="mt-8 h-px w-full bg-paper/20" />
