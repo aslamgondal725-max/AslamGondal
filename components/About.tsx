@@ -123,8 +123,9 @@ const About = ({ latestBlog }: Props): JSX.Element => {
             </p>
 
             <p className="mt-4 max-w-2xl text-sm leading-7 text-ink-mut">
-              Research Fellow, Department of Functional Materials in Medicine and
-              Dentistry (FMZ), Julius-Maximilians-Universität Würzburg, Germany.
+              Doctoral Candidate, Department of Functional Materials in Medicine
+              and Dentistry (FMZ), Julius-Maximilians-Universität Würzburg,
+              Germany.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
