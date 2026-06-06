@@ -65,7 +65,7 @@ const BlogPostPage: NextPage<Props> = ({ post }) => {
 
   const plainText = content.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   const readingMinutes = Math.max(1, Math.round(plainText.split(" ").filter(Boolean).length / 220));
-  const formattedDate = new Date(frontMatter.date).toLocaleDateString(undefined, {
+  const formattedDate = new Date(frontMatter.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "2-digit",

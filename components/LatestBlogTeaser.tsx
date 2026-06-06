@@ -8,7 +8,7 @@ type Props = {
 export default function LatestBlogTeaser({ post }: Props) {
   if (!post) return null;
 
-  const dateLabel = new Date(post.date).toLocaleDateString(undefined, {
+  const dateLabel = new Date(post.date).toLocaleDateString("en-US", {
     month: "short",
     day: "2-digit",
     year: "numeric",

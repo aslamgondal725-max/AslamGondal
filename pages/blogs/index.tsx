@@ -33,7 +33,7 @@ const BlogsIndex: NextPage<Props> = ({ posts }) => {
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-3 text-ink-mut">
                   <span className="text-sm">
-                    {new Date(p.date).toLocaleDateString(undefined, {
+                    {new Date(p.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "short",
                       day: "2-digit",
