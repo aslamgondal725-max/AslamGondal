@@ -16,11 +16,15 @@ const NavLink = ({ title, href, onNavigate }: NavLinkProps): JSX.Element => {
     (href.startsWith("/#") && router.pathname === "/");
 
   const baseClass =
-    "inline-flex items-center justify-center rounded-xl border px-3 py-2 text-sm font-medium transition duration-200";
-  const activeClass =
-    "border-blue-600 bg-blue-600 text-white shadow-[0_8px_18px_rgba(37,99,235,0.25)] dark:border-blue-400 dark:bg-blue-400 dark:text-slate-950";
-  const inactiveClass =
-    "border-transparent text-slate-700 hover:-translate-y-0.5 hover:border-slate-200 hover:bg-white/80 hover:shadow-sm dark:text-slate-200 dark:hover:border-slate-700 dark:hover:bg-slate-900/70";
+    "group relative inline-flex items-center text-sm font-medium transition-colors duration-200";
+  const stateClass = isActive
+    ? "text-ink"
+    : "text-ink-soft hover:text-ink";
+
+  const underlineClass = [
+    "pointer-events-none absolute -bottom-1 left-0 h-[1.5px] w-full origin-left bg-ink transition-transform duration-200",
+    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
+  ].join(" ");
 
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Only custom-handle hash links
@@ -54,11 +58,9 @@ const NavLink = ({ title, href, onNavigate }: NavLinkProps): JSX.Element => {
 
   return (
     <Link href={href} legacyBehavior>
-      <a
-        onClick={handleClick}
-        className={`${baseClass} ${isActive ? activeClass : inactiveClass}`}
-      >
+      <a onClick={handleClick} className={`${baseClass} ${stateClass}`}>
         {title}
+        <span aria-hidden="true" className={underlineClass} />
       </a>
     </Link>
   );

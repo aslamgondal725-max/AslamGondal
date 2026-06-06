@@ -1,9 +1,7 @@
-const withOffline = require('next-offline');
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
 	poweredByHeader: false,
 	swcMinify: true,
 };
 
-module.exports = withOffline(nextConfig);
-
+module.exports = nextConfig;

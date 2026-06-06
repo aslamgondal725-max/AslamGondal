@@ -1,7 +1,3 @@
-import { useEffect, useState } from "react";
-import { useScrollPosition } from "@n8tb1t/use-scroll-position";
-import { useTheme } from "next-themes";
-
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -10,39 +6,15 @@ interface Props {
 }
 
 const Layout = ({ children }: Props): JSX.Element => {
-  const [mounted, setMounted] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useScrollPosition(
-    ({ currPos }) => {
-      setScrolled(currPos.y <= -20);
-    },
-    [scrolled]
-  );
-
   return (
-    <div className="min-h-screen">
-      <div className="page-shell">
-        <div className="app-canvas overflow-hidden rounded-none border-x-0 sm:rounded-3xl sm:border-x">
-          <Header
-            mounted={mounted}
-            resolvedTheme={resolvedTheme}
-            setTheme={setTheme}
-            scrolled={scrolled}
-          />
+    <div className="flex min-h-screen flex-col bg-paper">
+      <Header />
 
-          <main className="w-full px-4 pb-8 pt-3 sm:px-6 sm:pb-10 sm:pt-5 lg:px-8">
-            {children}
-          </main>
+      <main className="page-shell w-full flex-1 px-4 pb-12 pt-8 sm:px-6 lg:px-8">
+        {children}
+      </main>
 
-          <Footer />
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };

@@ -1,10 +1,33 @@
 import "../styles/globals.css";
+import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { ThemeProvider } from "next-themes";
 import Layout from "../components/Layout";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  // One-time cleanup: the site previously used next-offline (a service worker /
+  // PWA). That worker can linger in browsers and cause reload loops or stale
+  // content. Unregister any existing service workers and clear their caches.
+  useEffect(() => {
+    if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) {
+      return;
+    }
+
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      registrations.forEach((registration) => {
+        registration.unregister();
+      });
+    });
+
+    if (typeof caches !== "undefined") {
+      caches.keys().then((keys) => {
+        keys.forEach((key) => {
+          caches.delete(key);
+        });
+      });
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -12,7 +35,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <title>Muhammad Aslam | Biofabrication Researcher</title>
         <meta
           name="description"
-          content="Muhammad Aslam — Biofabrication researcher focused on vascularized tissue models, organoids, spheroids, and advanced 3D human in vitro systems."
+          content="Muhammad Aslam, biofabrication researcher focused on vascularized tissue models, organoids, spheroids, and advanced 3D human in vitro systems."
         />
 
         {/* OpenGraph */}
@@ -38,11 +61,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:url" content="https://magondal.com/" />
       </Head>
 
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
