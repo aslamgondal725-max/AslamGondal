@@ -15,55 +15,36 @@ export default function LatestBlogTeaser({ post }: Props) {
   });
 
   return (
-    <div className="surface-card relative h-full overflow-hidden p-5 sm:p-6">
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-indigo-500 via-blue-500 to-sky-400" />
-      <div className="flex h-full flex-col">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
-              Latest blog
-            </div>
-            <div className="mt-2 inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-              {dateLabel}
-            </div>
-          </div>
+    <div className="surface-card-hover p-6 sm:p-7">
+      <div className="flex items-baseline justify-between gap-4">
+        <p className="eyebrow">Latest blog</p>
+        <span className="text-xs font-medium text-ink-mut">{dateLabel}</span>
+      </div>
 
-          <Link
-            href={`/blogs/${post.slug}`}
-            className="whitespace-nowrap rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
-          >
-            Read →
-          </Link>
-        </div>
+      <Link
+        href={`/blogs/${post.slug}`}
+        className="mt-4 block font-serif text-2xl font-medium leading-snug tracking-tight text-ink underline decoration-transparent underline-offset-4 transition-colors hover:decoration-line-strong"
+      >
+        {post.title}
+      </Link>
 
-        <Link
-          href={`/blogs/${post.slug}`}
-          className="mt-4 block text-2xl font-bold leading-tight tracking-tight text-slate-900 hover:text-blue-700 dark:text-slate-100 dark:hover:text-blue-300"
-        >
-          {post.title}
+      {post.teaserQuestion && (
+        <p className="mt-4 border-l-2 border-ink pl-4 text-base italic leading-7 text-ink-soft">
+          {post.teaserQuestion}
+        </p>
+      )}
+
+      {post.excerpt && (
+        <p className="mt-4 text-ink-soft">{post.excerpt}</p>
+      )}
+
+      <div className="mt-6 border-t border-line pt-4">
+        <Link href={`/blogs/${post.slug}`} className="cta-link">
+          Open article
+          <span className="ml-1.5" aria-hidden="true">
+            &rarr;
+          </span>
         </Link>
-
-        {post.teaserQuestion && (
-          <p className="mt-3 rounded-xl border border-indigo-100 bg-indigo-50/70 px-4 py-3 text-sm italic font-medium leading-6 text-indigo-900 dark:border-indigo-400/20 dark:bg-indigo-400/10 dark:text-indigo-200">
-            {post.teaserQuestion}
-          </p>
-        )}
-
-        {post.excerpt && (
-          <p className="mt-4 text-[15px] leading-7 text-slate-600 dark:text-slate-300">
-            {post.excerpt}
-          </p>
-        )}
-
-        <div className="mt-5 border-t border-slate-200/80 pt-4 dark:border-slate-700">
-          <Link
-            href={`/blogs/${post.slug}`}
-            className="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-800 dark:text-blue-300 dark:hover:text-blue-200"
-          >
-            Open article
-            <span className="ml-1" aria-hidden="true">→</span>
-          </Link>
-        </div>
       </div>
     </div>
   );

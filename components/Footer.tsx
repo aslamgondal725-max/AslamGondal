@@ -1,4 +1,3 @@
-import Image from "next/image";
 import personalInfo from "./data/personalInfo.json";
 
 const Footer = (): JSX.Element => {
@@ -7,21 +6,23 @@ const Footer = (): JSX.Element => {
   const links = [
     {
       name: "CV",
-      href: `${siteUrl}/cv.pdf`, // ✅ absolute, always correct
-      icon: "/images/cv-file-interface-symbol-svgrepo-com.svg",
-      alt: "CV",
+      href: `${siteUrl}/cv.pdf`, // absolute, always correct
+      external: true,
     },
     {
       name: "Twitter",
       href: personalInfo.socialMedia.Twitter,
-      icon: "/images/icons8-twitter.svg",
-      alt: "Twitter",
+      external: true,
     },
     {
       name: "LinkedIn",
       href: personalInfo.socialMedia.LinkedIn,
-      icon: "/images/icons8-linkedin.svg",
-      alt: "LinkedIn",
+      external: true,
+    },
+    {
+      name: "Email",
+      href: `mailto:${personalInfo.about.email}`,
+      external: false,
     },
   ];
 
@@ -29,36 +30,41 @@ const Footer = (): JSX.Element => {
     links.push({
       name: "Google Scholar",
       href: personalInfo.socialMedia.GoogleScholar,
-      icon: "/images/icons8-google-scholar.svg",
-      alt: "Google Scholar",
+      external: true,
     });
   }
 
   return (
-    <footer className="mt-14 px-4 pb-8 pt-4 sm:px-6 lg:px-8">
-      <div className="surface-card panel-accent flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-sm font-semibold tracking-wide text-slate-800 dark:text-slate-100">
-            © 2026 Muhammad Aslam
-          </p>
-          <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">
-            Research portfolio, publications, projects, and notes.
-          </p>
+    <footer className="mt-16 border-t border-line bg-paper">
+      <div className="page-shell px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-6 py-10 sm:flex-row sm:items-start sm:justify-between">
+          <div className="max-w-sm">
+            <p className="font-serif text-lg font-medium tracking-tight text-ink">
+              {personalInfo.name}.
+            </p>
+            <p className="mt-2 text-sm leading-6 text-ink-mut">
+              Research portfolio, publications, projects, and notes.
+            </p>
+          </div>
+
+          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            {links.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
+                className="text-sm font-medium text-ink-soft transition-colors hover:text-ink"
+              >
+                {item.name}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        <div className="flex items-center gap-4">
-          {links.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200/70 bg-white opacity-80 shadow-sm transition hover:-translate-y-0.5 hover:opacity-100 hover:shadow-md dark:border-slate-700 dark:bg-slate-900"
-              aria-label={item.name}
-            >
-              <Image src={item.icon} alt={item.alt} width={20} height={20} />
-            </a>
-          ))}
+        <div className="flex flex-col gap-1 border-t border-line py-6 text-xs text-ink-mut sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 {personalInfo.name}</p>
+          <p>Würzburg, Germany</p>
         </div>
       </div>
     </footer>

@@ -9,11 +9,6 @@ type Props = {
   post: BlogPost;
 };
 
-const chip =
-  "inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold " +
-  "border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 " +
-  "bg-white dark:bg-gray-900";
-
 type ReactionKey = "like" | "insightful" | "applause";
 
 type CommentItem = {
@@ -161,294 +156,231 @@ const BlogPostPage: NextPage<Props> = ({ post }) => {
         )}
       </Head>
 
-      <article className="mx-auto w-full max-w-6xl">
-        <div className="grid gap-6 lg:grid-cols-12">
-          <aside className="lg:col-span-4">
-            <div className="surface-card p-5 lg:sticky lg:top-24">
-              <Link
-                href="/blogs"
-                className="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-800 dark:text-blue-300 dark:hover:text-blue-200"
-              >
-                ← Back to Blog
-              </Link>
+      <article className="mx-auto w-full max-w-3xl">
+        <Link href="/blogs" className="cta-link">
+          Back to Blog
+        </Link>
 
-              <div className="mt-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                  Article
-                </p>
-                <h1 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl">
-                  {frontMatter.title}
-                </h1>
+        <header className="mt-6 border-b border-line pb-8">
+          <p className="eyebrow">Research Note</p>
+          <h1 className="mt-3 font-serif text-4xl font-medium tracking-tight text-ink sm:text-5xl">
+            {frontMatter.title}
+          </h1>
 
-                {frontMatter.excerpt && (
-                  <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">
-                    {frontMatter.excerpt}
-                  </p>
-                )}
-              </div>
+          {frontMatter.excerpt && (
+            <p className="section-subtext max-w-2xl">{frontMatter.excerpt}</p>
+          )}
 
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800/70">
-                  <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                    Published
-                  </div>
-                  <div className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-100">
-                    {formattedDate}
-                  </div>
-                </div>
-                <div className="rounded-xl border border-slate-200/80 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800/70">
-                  <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                    Read Time
-                  </div>
-                  <div className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-100">
-                    {readingMinutes} min
-                  </div>
-                </div>
-              </div>
+          <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-mut">
+            <span>{formattedDate}</span>
+            <span aria-hidden="true">/</span>
+            <span>{readingMinutes} min read</span>
+          </div>
 
-              {frontMatter.tags && frontMatter.tags.length > 0 && (
-                <div className="mt-5">
-                  <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                    Topics
-                  </div>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {frontMatter.tags.map((t: string) => (
-                      <span key={t} className={chip}>
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {frontMatter.paperTitle && frontMatter.paperUrl && (
-                <div className="mt-5 rounded-xl border border-blue-100 bg-blue-50/80 p-4 dark:border-blue-400/20 dark:bg-blue-500/10">
-                  <div className="text-[11px] font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300">
-                    Source Paper
-                  </div>
-                  <a
-                    href={frontMatter.paperUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 block text-sm font-semibold leading-6 text-slate-900 underline underline-offset-4 dark:text-slate-100"
-                  >
-                    {frontMatter.paperTitle}
-                  </a>
-                </div>
-              )}
-
-              <div className="mt-5 rounded-xl border border-slate-200/80 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/70">
-                <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                  Share
-                </div>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <button
-                    type="button"
-                    onClick={handleNativeShare}
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
-                  >
-                    <Share2 size={14} />
-                    Share
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleCopyLink}
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
-                  >
-                    <LinkIcon size={14} />
-                    {linkCopied ? "Copied" : "Copy link"}
-                  </button>
-                </div>
-              </div>
+          {frontMatter.tags && frontMatter.tags.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {frontMatter.tags.map((t: string) => (
+                <span key={t} className="soft-chip">
+                  {t}
+                </span>
+              ))}
             </div>
-          </aside>
+          )}
 
-          <div className="lg:col-span-8">
-            <div className="surface-card overflow-hidden">
-              <div className="border-b border-slate-200/80 bg-gradient-to-r from-blue-50 via-white to-white px-6 py-5 dark:border-slate-800 dark:from-blue-500/10 dark:via-slate-900 dark:to-slate-900 sm:px-8">
-                <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
-                  <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                    Research Note
-                  </span>
-                  <span>{formattedDate}</span>
-                  <span aria-hidden="true">•</span>
-                  <span>{readingMinutes} min read</span>
-                </div>
-              </div>
+          {frontMatter.paperTitle && frontMatter.paperUrl && (
+            <div className="mt-5 surface-card p-4">
+              <div className="eyebrow">Source Paper</div>
+              <a
+                href={frontMatter.paperUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 block text-sm font-semibold leading-6 text-ink underline decoration-line-strong underline-offset-4 hover:decoration-ink"
+              >
+                {frontMatter.paperTitle}
+              </a>
+            </div>
+          )}
 
-              <div className="px-6 py-7 sm:px-8 sm:py-9">
-                <div
-                  className="prose prose-blog max-w-none text-slate-700 dark:text-slate-300"
-                  dangerouslySetInnerHTML={{ __html: content }}
+          <div className="mt-5 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={handleNativeShare}
+              className="btn-ghost px-4 py-2 text-xs"
+            >
+              <Share2 size={14} />
+              Share
+            </button>
+            <button
+              type="button"
+              onClick={handleCopyLink}
+              className="btn-ghost px-4 py-2 text-xs"
+            >
+              <LinkIcon size={14} />
+              {linkCopied ? "Copied" : "Copy link"}
+            </button>
+          </div>
+        </header>
+
+        <div
+          className="prose prose-blog mt-8 max-w-none text-ink-soft"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+
+        <section className="mt-12 border-t border-line pt-8">
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <h2 className="section-heading">Reactions and Comments</h2>
+            <span className="eyebrow">
+              {interactionState.comments.length} comments
+            </span>
+          </div>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {reactionOptions.map((option) => (
+              <button
+                key={option.key}
+                type="button"
+                onClick={() => handleReaction(option.key)}
+                className="btn-ghost px-4 py-2 text-sm"
+              >
+                {option.label}
+                <span className="rounded-sm border border-line bg-paper-card px-2 py-0.5 text-xs text-ink-soft">
+                  {interactionState.reactions[option.key]}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <form onSubmit={submitComment} className="mt-6 surface-card p-5">
+            <div className="grid gap-3 sm:grid-cols-2">
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Your name (optional)"
+                className="w-full rounded-sm border border-line bg-paper px-3 py-2 text-sm text-ink outline-none transition-colors focus:border-ink"
+              />
+              <div className="flex flex-wrap items-center gap-2">
+                <input
+                  ref={imageInputRef}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={(e) => handleFilePick(e.target.files)}
+                  className="hidden"
+                />
+                <input
+                  ref={videoInputRef}
+                  type="file"
+                  accept="video/*"
+                  multiple
+                  onChange={(e) => handleFilePick(e.target.files)}
+                  className="hidden"
+                />
+                <input
+                  ref={docInputRef}
+                  type="file"
+                  accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt"
+                  multiple
+                  onChange={(e) => handleFilePick(e.target.files)}
+                  className="hidden"
                 />
 
-                <section className="mt-10 border-t border-slate-200/80 pt-8 dark:border-slate-700">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <h3 className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-                      Reactions & Comments
-                    </h3>
-                    <span className="soft-chip !text-xs">
-                      {interactionState.comments.length} comments
-                    </span>
-                  </div>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {reactionOptions.map((option) => (
-                      <button
-                        key={option.key}
-                        type="button"
-                        onClick={() => handleReaction(option.key)}
-                        className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
-                      >
-                        {option.label}
-                        <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs dark:bg-slate-800">
-                          {interactionState.reactions[option.key]}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-
-                  <form onSubmit={submitComment} className="mt-6 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 dark:border-slate-700 dark:bg-slate-800/40">
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Your name (optional)"
-                        className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none ring-blue-500/20 focus:ring-4 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-                      />
-                      <div className="flex flex-wrap items-center gap-2">
-                        <input
-                          ref={imageInputRef}
-                          type="file"
-                          accept="image/*"
-                          multiple
-                          onChange={(e) => handleFilePick(e.target.files)}
-                          className="hidden"
-                        />
-                        <input
-                          ref={videoInputRef}
-                          type="file"
-                          accept="video/*"
-                          multiple
-                          onChange={(e) => handleFilePick(e.target.files)}
-                          className="hidden"
-                        />
-                        <input
-                          ref={docInputRef}
-                          type="file"
-                          accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt"
-                          multiple
-                          onChange={(e) => handleFilePick(e.target.files)}
-                          className="hidden"
-                        />
-
-                        <button
-                          type="button"
-                          className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
-                          onClick={() => imageInputRef.current?.click()}
-                        >
-                          + Photo
-                        </button>
-                        <button
-                          type="button"
-                          className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
-                          onClick={() => videoInputRef.current?.click()}
-                        >
-                          + Video
-                        </button>
-                        <button
-                          type="button"
-                          className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
-                          onClick={() => docInputRef.current?.click()}
-                        >
-                          + Document
-                        </button>
-                      </div>
-                    </div>
-
-                    <textarea
-                      value={comment}
-                      onChange={(e) => setComment(e.target.value)}
-                      placeholder="Write a comment..."
-                      rows={4}
-                      className="mt-3 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm leading-6 text-slate-800 outline-none ring-blue-500/20 focus:ring-4 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-                    />
-
-                    {pendingFiles.length > 0 && (
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {pendingFiles.map((file, index) => (
-                          <span
-                            key={`${file.name}-${index}`}
-                            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
-                          >
-                            {file.name}
-                            <button
-                              type="button"
-                              className="font-bold text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-                              onClick={() => removePendingFile(index)}
-                              aria-label={`Remove ${file.name}`}
-                            >
-                              ×
-                            </button>
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    <div className="mt-4 flex justify-end">
-                      <button
-                        type="submit"
-                        className="inline-flex items-center rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
-                      >
-                        Post Comment
-                      </button>
-                    </div>
-                  </form>
-
-                  <div className="mt-6 space-y-3">
-                    {interactionState.comments.length === 0 ? (
-                      <p className="rounded-xl border border-dashed border-slate-300 px-4 py-3 text-sm text-slate-500 dark:border-slate-700 dark:text-slate-400">
-                        No comments yet. Start the discussion.
-                      </p>
-                    ) : (
-                      interactionState.comments.map((item) => (
-                        <article
-                          key={item.id}
-                          className="rounded-xl border border-slate-200/80 bg-white p-4 dark:border-slate-700 dark:bg-slate-900/70"
-                        >
-                          <div className="flex flex-wrap items-center justify-between gap-2">
-                            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                              {item.author}
-                            </p>
-                            <time className="text-xs text-slate-500 dark:text-slate-400">
-                              {new Date(item.createdAt).toLocaleString()}
-                            </time>
-                          </div>
-                          <p className="mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700 dark:text-slate-300">
-                            {item.text}
-                          </p>
-                          {item.attachments.length > 0 && (
-                            <div className="mt-3 flex flex-wrap gap-2">
-                              {item.attachments.map((name) => (
-                                <span
-                                  key={`${item.id}-${name}`}
-                                  className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
-                                >
-                                  {name}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </article>
-                      ))
-                    )}
-                  </div>
-                </section>
+                <button
+                  type="button"
+                  className="rounded-sm border border-line bg-paper px-3 py-2 text-xs font-semibold text-ink-soft transition-colors hover:border-ink hover:text-ink"
+                  onClick={() => imageInputRef.current?.click()}
+                >
+                  + Photo
+                </button>
+                <button
+                  type="button"
+                  className="rounded-sm border border-line bg-paper px-3 py-2 text-xs font-semibold text-ink-soft transition-colors hover:border-ink hover:text-ink"
+                  onClick={() => videoInputRef.current?.click()}
+                >
+                  + Video
+                </button>
+                <button
+                  type="button"
+                  className="rounded-sm border border-line bg-paper px-3 py-2 text-xs font-semibold text-ink-soft transition-colors hover:border-ink hover:text-ink"
+                  onClick={() => docInputRef.current?.click()}
+                >
+                  + Document
+                </button>
               </div>
             </div>
+
+            <textarea
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              placeholder="Write a comment..."
+              rows={4}
+              className="mt-3 w-full resize-y rounded-sm border border-line bg-paper px-3 py-2 text-sm leading-6 text-ink outline-none transition-colors focus:border-ink"
+            />
+
+            {pendingFiles.length > 0 && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {pendingFiles.map((file, index) => (
+                  <span
+                    key={`${file.name}-${index}`}
+                    className="inline-flex items-center gap-2 rounded-sm border border-line bg-paper-card px-3 py-1 text-xs text-ink-soft"
+                  >
+                    {file.name}
+                    <button
+                      type="button"
+                      className="font-bold text-ink-mut transition-colors hover:text-ink"
+                      onClick={() => removePendingFile(index)}
+                      aria-label={`Remove ${file.name}`}
+                    >
+                      x
+                    </button>
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <div className="mt-4 flex justify-end">
+              <button type="submit" className="btn-ink">
+                Post Comment
+              </button>
+            </div>
+          </form>
+
+          <div className="mt-6 space-y-3">
+            {interactionState.comments.length === 0 ? (
+              <p className="rounded-sm border border-dashed border-line-strong px-4 py-3 text-sm text-ink-mut">
+                No comments yet. Start the discussion.
+              </p>
+            ) : (
+              interactionState.comments.map((item) => (
+                <article key={item.id} className="surface-card p-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="text-sm font-semibold text-ink">
+                      {item.author}
+                    </p>
+                    <time className="text-xs text-ink-mut">
+                      {new Date(item.createdAt).toLocaleString()}
+                    </time>
+                  </div>
+                  <p className="mt-2 whitespace-pre-wrap text-sm leading-7 text-ink-soft">
+                    {item.text}
+                  </p>
+                  {item.attachments.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {item.attachments.map((name) => (
+                        <span
+                          key={`${item.id}-${name}`}
+                          className="inline-flex items-center rounded-sm border border-line bg-paper-card px-2.5 py-1 text-xs text-ink-soft"
+                        >
+                          {name}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </article>
+              ))
+            )}
           </div>
-        </div>
+        </section>
       </article>
     </>
   );

@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { ThemeProvider } from "next-themes";
 import Layout from "../components/Layout";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -12,7 +11,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <title>Muhammad Aslam | Biofabrication Researcher</title>
         <meta
           name="description"
-          content="Muhammad Aslam — Biofabrication researcher focused on vascularized tissue models, organoids, spheroids, and advanced 3D human in vitro systems."
+          content="Muhammad Aslam, biofabrication researcher focused on vascularized tissue models, organoids, spheroids, and advanced 3D human in vitro systems."
         />
 
         {/* OpenGraph */}
@@ -38,11 +37,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:url" content="https://magondal.com/" />
       </Head>
 
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

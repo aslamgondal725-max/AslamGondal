@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import NavLink from "./NavLink";
-import { Sun, Moon, Menu, X } from "react-feather";
+import { Menu, X } from "react-feather";
 import personalInfo from "./data/personalInfo.json";
 
-interface HeaderProps {
-  mounted: boolean;
-  resolvedTheme?: string; // can be undefined during SSR
-  setTheme: (theme: string) => void;
-  scrolled: boolean;
-}
+// No props: the theme toggle (and its mounted/theme state) has been removed,
+// and the header now uses a fixed paper background, so `scrolled` is unused.
+type HeaderProps = Record<string, never>;
 
-const Header = ({ mounted, resolvedTheme, setTheme, scrolled }: HeaderProps): JSX.Element => {
+const contactClass =
+  "inline-flex flex-none items-center justify-center gap-2 whitespace-nowrap rounded-sm border border-ink bg-ink px-5 py-2.5 text-sm font-semibold text-paper transition-colors hover:bg-black";
+
+const Header = ({}: HeaderProps): JSX.Element => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const theme = resolvedTheme ?? "light";
   const navItems = [
     { title: "About", href: "/#about" },
     { title: "Publications", href: "/publications" },
@@ -22,6 +21,12 @@ const Header = ({ mounted, resolvedTheme, setTheme, scrolled }: HeaderProps): JS
     { title: "Blogs", href: "/blogs" },
     { title: "Misc", href: "/misc" },
   ];
+
+  const contactHref = "mailto:Aslamgondal725@gmail.com?subject=Website%20Inquiry";
+  const contactTitle =
+    "Email: Aslamgondal725@gmail.com | Phone: +4915560801280";
+  const contactAriaLabel =
+    "Contact me by email at Aslamgondal725@gmail.com or phone at +4915560801280";
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -34,87 +39,67 @@ const Header = ({ mounted, resolvedTheme, setTheme, scrolled }: HeaderProps): JS
   }, [menuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 w-full px-4 pt-4 sm:px-6 lg:px-8">
-      <div
-        className={[
-          "rounded-2xl border px-3 sm:px-4",
-          scrolled
-            ? "border-slate-200/90 bg-white/90 shadow-[0_12px_30px_rgba(15,23,42,0.08)] backdrop-blur-xl dark:border-slate-700 dark:bg-slate-900/88"
-            : "border-white/20 bg-white/20 backdrop-blur-sm dark:border-slate-800/50 dark:bg-slate-900/30",
-        ].join(" ")}
-      >
-        <div className="flex h-16 items-center justify-between gap-3">
+    <header className="sticky top-0 z-40 w-full border-b border-line bg-paper">
+      <div className="page-shell px-4 sm:px-6 lg:px-8">
+        <div className="flex h-[74px] items-center justify-between gap-4">
           <Link href="/" className="min-w-0">
-            <span className="group relative inline-flex items-center overflow-hidden rounded-2xl border border-slate-900/80 bg-white pr-3 shadow-[0_8px_20px_rgba(15,23,42,0.08)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(37,99,235,0.12)] dark:border-slate-200/70 dark:bg-slate-950">
-              <span className="relative flex h-full items-center bg-gradient-to-b from-blue-500 to-sky-400 px-2.5 py-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-white/95 shadow-sm" />
-              </span>
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/50 opacity-0 transition group-hover:opacity-100"
-              />
-              <span className="pl-2.5 text-[11px] font-extrabold tracking-[0.2em] text-slate-900 dark:text-slate-100">
-                {personalInfo.name.toUpperCase()}
-              </span>
+            <span className="font-serif text-xl font-medium tracking-tight text-ink">
+              {personalInfo.name}.
             </span>
           </Link>
 
-          <div className="flex items-center gap-2">
-            <nav className="hidden items-center gap-1 lg:flex">
+          <div className="flex items-center gap-6">
+            <nav className="hidden items-center gap-6 lg:flex">
               {navItems.map((item) => (
                 <NavLink key={item.href} title={item.title} href={item.href} />
               ))}
             </nav>
 
-            {mounted ? (
-              <button
-                type="button"
-                aria-label="Change theme"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
-                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              >
-                {theme === "light" ? <Moon size={18} aria-label="Moon" /> : <Sun size={18} aria-label="Sun" />}
-              </button>
-            ) : (
-              <div className="h-10 w-10 rounded-xl border border-slate-200/80 dark:border-slate-700" aria-hidden="true" />
-            )}
-
             <a
-              href={`mailto:Aslamgondal725@gmail.com?subject=Website%20Inquiry`}
-              title="Email: Aslamgondal725@gmail.com | Phone: +4915560801280"
-              aria-label="Contact me by email at Aslamgondal725@gmail.com or phone at +4915560801280"
-              className="hidden h-10 items-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 text-sm font-semibold text-white shadow-[0_10px_22px_rgba(37,99,235,0.28)] transition hover:brightness-105 lg:inline-flex"
+              href={contactHref}
+              title={contactTitle}
+              aria-label={contactAriaLabel}
+              className={`hidden lg:inline-flex ${contactClass}`}
             >
-              Contact Me
+              Contact
             </a>
 
             <button
               type="button"
               aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={menuOpen}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800 lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-line text-ink-soft transition-colors hover:border-ink hover:text-ink lg:hidden"
               onClick={() => setMenuOpen((value) => !value)}
             >
               {menuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
-
-        {menuOpen && (
-          <div className="pb-4 lg:hidden">
-            <nav className="surface-card grid gap-2 p-3">
-              {navItems.map((item) => (
-                <NavLink
-                  key={`mobile-${item.href}`}
-                  title={item.title}
-                  href={item.href}
-                  onNavigate={() => setMenuOpen(false)}
-                />
-              ))}
-            </nav>
-          </div>
-        )}
       </div>
+
+      {menuOpen && (
+        <div className="border-b border-line bg-paper lg:hidden">
+          <nav className="page-shell flex flex-col gap-4 px-4 py-5 sm:px-6">
+            {navItems.map((item) => (
+              <NavLink
+                key={`mobile-${item.href}`}
+                title={item.title}
+                href={item.href}
+                onNavigate={() => setMenuOpen(false)}
+              />
+            ))}
+            <a
+              href={contactHref}
+              title={contactTitle}
+              aria-label={contactAriaLabel}
+              onClick={() => setMenuOpen(false)}
+              className={`${contactClass} self-start`}
+            >
+              Contact
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };

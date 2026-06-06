@@ -74,68 +74,62 @@ const RecentReadings = (): JSX.Element => {
 
   if (!list.length) {
     return (
-      <div className="surface-card p-5">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-          Recent Readings
-        </h3>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-          No readings found. Check <code>components/data/readings.json</code>.
+      <div id="reading">
+        <h2 className="font-serif text-2xl font-medium tracking-tight text-ink sm:text-3xl">
+          Recent readings
+        </h2>
+        <p className="mt-3 text-ink-soft">
+          No readings found. Check{" "}
+          <code className="rounded-sm bg-paper-deep px-1.5 py-0.5 text-sm">
+            components/data/readings.json
+          </code>
+          .
         </p>
       </div>
     );
   }
 
   return (
-    <aside className="surface-card relative sticky top-24 overflow-hidden p-5">
-      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400" aria-hidden="true" />
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
-            Reading List
-          </p>
-          <h3 className="mt-1 text-2xl font-bold leading-tight tracking-tight text-slate-900 dark:text-slate-100">
-            Recent Readings
-          </h3>
-        </div>
-
-        <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-emerald-700 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-300">
-          rotating
-        </span>
+    <div id="reading">
+      <div className="flex items-baseline justify-between gap-4">
+        <h2 className="font-serif text-2xl font-medium tracking-tight text-ink sm:text-3xl">
+          Recent readings
+        </h2>
+        <span className="eyebrow">Rotating</span>
       </div>
 
-      <div
+      <ul
         className={[
-          "mt-4 space-y-3",
+          "mt-6",
           "rr-anim",
           phase === "in" ? "rr-in" : "rr-out",
         ].join(" ")}
       >
         {visible.map((r) => (
-          <a
-            key={r.url}
-            href={r.url}
-            target="_blank"
-            rel="noreferrer"
-            className="group block rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/70"
-          >
-            <div className="font-semibold leading-snug text-sky-700 transition group-hover:text-blue-700 dark:text-sky-300 dark:group-hover:text-blue-300">
-              {r.title}
-            </div>
-            <div className="mt-1 text-sm text-slate-700 dark:text-slate-300">
-              {r.authors}
-            </div>
-            <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-              {r.journal ? `${r.journal} · ` : ""}
-              {r.year}
-            </div>
-          </a>
+          <li key={r.url} className="border-t border-line first:border-t-0">
+            <a
+              href={r.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group block py-4"
+            >
+              <div className="font-serif text-base leading-snug text-ink underline decoration-transparent underline-offset-4 transition-colors group-hover:decoration-line-strong">
+                {r.title}
+              </div>
+              <div className="mt-1 text-sm text-ink-soft">{r.authors}</div>
+              <div className="mt-1 text-xs text-ink-mut">
+                {r.journal ? `${r.journal}, ` : ""}
+                {r.year}
+              </div>
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
 
-      <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
+      <p className="mt-4 text-xs text-ink-mut">
         Showing {Math.min(SHOW_COUNT, list.length)} of {list.length}
       </p>
-    </aside>
+    </div>
   );
 };
 
